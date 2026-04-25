@@ -28,6 +28,14 @@ export const materials: Material[] = [
     thumbnail: "/materials/radio-law-print.png",
   },
   {
+    title: "一陸技対策会　ドキュメント詰め合わせ",
+    exam: "第一級陸上無線技術士",
+    type: "PDF",
+    description: "陸技の暗記シートとか指南書とか問題解説とかスライド以外の資料諸々。",
+    url: "https://drive.google.com/file/d/1kryjdS2uZ4jP09EnLIRpdAYXDC50o_4O/view?usp=drive_link",
+    thumbnail: "/materials/radio-documents-pack.png",
+  },
+  {
     title: "アルゴリズム攻略　講義資料",
     exam: "基本情報技術者試験",
     type: "PowerPoint",
