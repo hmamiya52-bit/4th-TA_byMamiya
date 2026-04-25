@@ -55,6 +55,13 @@ export default function Home() {
         </div>
       </header>
 
+      <section className="border-b border-line bg-white">
+        <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-3 text-xs leading-6 text-muted sm:px-6 lg:px-8">
+          <p className="font-bold text-ink">最終更新日：2026/04/25</p>
+          <p>2026年4月からITエンジニアになりました。せっかくなのでGoogleドライブで教材を管理していたのを大幅リニューアル。</p>
+        </div>
+      </section>
+
       <HeroSection />
 
       <section id="materials" className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
