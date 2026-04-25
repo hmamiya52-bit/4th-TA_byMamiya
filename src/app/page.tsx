@@ -46,9 +46,6 @@ export default function Home() {
             {siteName}
           </a>
           <nav aria-label="主要ナビゲーション" className="flex items-center gap-4 text-sm font-medium text-muted">
-            <a className="transition hover:text-accent" href="#about">
-              概要
-            </a>
             <a className="transition hover:text-accent" href="#materials">
               教材
             </a>
@@ -61,10 +58,13 @@ export default function Home() {
           <div>
             <p className="mb-4 text-sm font-bold text-teal">オリジナル教材</p>
             <h1 className="max-w-3xl text-4xl font-bold leading-tight text-ink sm:text-5xl">
-              試験対策を、わかりやすく、続けやすく。
+              <span className="block">試験対策を、</span>
+              <span className="block">わかりやすく、</span>
+              <span className="block">続けやすく。</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              資格試験の学習を支援するために作成したオリジナル教材を、資格ごとに整理して公開しています。
+              このサイトでは、資格試験の学習を支援するために作成したオリジナル教材を公開しています。
+              重要ポイントの整理、問題演習、知識の定着を助ける資料やアプリを、資格ごとにまとめています。
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
@@ -72,12 +72,6 @@ export default function Home() {
                 className="inline-flex min-h-12 items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:bg-blue-700"
               >
                 教材を見る
-              </a>
-              <a
-                href="#about"
-                className="inline-flex min-h-12 items-center justify-center rounded-md border border-line bg-white px-5 py-3 text-sm font-bold text-ink transition hover:border-accent hover:text-accent"
-              >
-                サイト概要
               </a>
             </div>
           </div>
@@ -97,18 +91,6 @@ export default function Home() {
                 <dd className="mt-2 text-base font-bold text-ink">講義資料・PDF・Webアプリ・動画</dd>
               </div>
             </dl>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="border-y border-line bg-white">
-        <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
-            <h2 className="text-2xl font-bold text-ink">サイト概要</h2>
-            <p className="text-base leading-8 text-muted">
-              このサイトでは、資格試験の学習を支援するために作成したオリジナル教材を公開しています。
-              重要ポイントの整理、問題演習、知識の定着を助ける資料やアプリを、資格ごとにまとめています。
-            </p>
           </div>
         </div>
       </section>
