@@ -7,7 +7,7 @@ export const dynamic = "force-static";
 const siteName = "第４術科協会（旧間宮塾）";
 
 const typeStyles: Record<Material["type"], string> = {
-  PowerPoint: "bg-sky-50 text-sky-800 ring-sky-200",
+  スライド: "bg-sky-50 text-sky-800 ring-sky-200",
   PDF: "bg-rose-50 text-rose-800 ring-rose-200",
   Webアプリ: "bg-teal-50 text-teal-800 ring-teal-200",
   動画: "bg-amber-50 text-amber-800 ring-amber-200",
@@ -15,7 +15,7 @@ const typeStyles: Record<Material["type"], string> = {
 };
 
 const actionLabels: Record<Material["type"], string> = {
-  PowerPoint: "資料を開く",
+  スライド: "スライドを開く",
   PDF: "資料を開く",
   Webアプリ: "アプリを開く",
   動画: "動画を開く",

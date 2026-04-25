@@ -1,4 +1,4 @@
-export type MaterialType = "PowerPoint" | "PDF" | "Webアプリ" | "動画" | "申請フォーム";
+export type MaterialType = "スライド" | "PDF" | "Webアプリ" | "動画" | "申請フォーム";
 
 export type Material = {
   title: string;
@@ -14,7 +14,7 @@ export const materials: Material[] = [
   {
     title: "一陸技対策会　講義資料",
     exam: "第一級陸上無線技術士",
-    type: "PowerPoint",
+    type: "スライド",
     description: "世界一わかりやすい陸技解説を目指して作ったスライド資料です。",
     url: "https://drive.google.com/file/d/1izRxmQrww_Or2b2lI4_jypyk-RG8azzT/view?usp=drive_link",
     thumbnail: "/materials/radio-engineer-slides.png",
@@ -38,7 +38,7 @@ export const materials: Material[] = [
   {
     title: "アルゴリズム攻略　講義資料",
     exam: "基本情報技術者試験",
-    type: "PowerPoint",
+    type: "スライド",
     description:
       "アルゴリズム分野をわかりやすく解説したスライド資料です。現在、アルゴリズム以外の分野は非公開にしています。",
     url: "https://drive.google.com/file/d/1J_WomAHSUIdguFPAhexk2l78ItZJ-kIT/view?usp=drive_link",

@@ -1,10 +1,10 @@
 import type { Material } from "@/data/materials";
 
 const previewStyles: Record<Material["type"], { frame: string; bar: string; label: string }> = {
-  PowerPoint: {
+  スライド: {
     frame: "border-sky-200 bg-sky-50",
     bar: "bg-sky-500",
-    label: "SLIDE",
+    label: "スライド",
   },
   PDF: {
     frame: "border-rose-200 bg-rose-50",
@@ -14,17 +14,17 @@ const previewStyles: Record<Material["type"], { frame: string; bar: string; labe
   Webアプリ: {
     frame: "border-teal-200 bg-teal-50",
     bar: "bg-teal-500",
-    label: "APP",
+    label: "アプリ",
   },
   動画: {
     frame: "border-amber-200 bg-amber-50",
     bar: "bg-amber-500",
-    label: "VIDEO",
+    label: "動画",
   },
   申請フォーム: {
     frame: "border-violet-200 bg-violet-50",
     bar: "bg-violet-500",
-    label: "FORM",
+    label: "申請",
   },
 };
 
