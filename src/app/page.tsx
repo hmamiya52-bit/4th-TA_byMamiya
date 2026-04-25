@@ -1,5 +1,6 @@
 import { examNotes, exams, materials, type Material } from "@/data/materials";
-import { HeroDesignPreview } from "@/components/HeroDesignPreview";
+import { HeroSection } from "@/components/HeroSection";
+import { MaterialPreview } from "@/components/MaterialPreview";
 
 export const dynamic = "force-static";
 
@@ -54,7 +55,7 @@ export default function Home() {
         </div>
       </header>
 
-      <HeroDesignPreview materials={materials} examCount={exams.length} />
+      <HeroSection materials={materials} />
 
       <section id="materials" className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
@@ -92,6 +93,9 @@ export default function Home() {
                           : "border-line bg-white shadow-sm"
                       }`}
                     >
+                      <div className="mb-5">
+                        <MaterialPreview material={material} />
+                      </div>
                       <div className="mb-4 flex flex-wrap items-center gap-2">
                         {material.recommended ? (
                           <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-white">
