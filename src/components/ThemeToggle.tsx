@@ -8,8 +8,8 @@ const storageKey = "theme-mode";
 
 const options: { label: string; value: ThemeMode }[] = [
   { label: "自動", value: "system" },
-  { label: "明", value: "light" },
-  { label: "暗", value: "dark" },
+  { label: "ライト", value: "light" },
+  { label: "ダーク", value: "dark" },
 ];
 
 function getResolvedTheme(mode: ThemeMode) {
@@ -56,7 +56,7 @@ export function ThemeToggle() {
 
   return (
     <div
-      className="inline-flex rounded-full border border-line bg-paper p-1 text-xs font-bold text-muted"
+      className="inline-flex rounded-full border border-line bg-paper p-1 text-[11px] font-bold text-muted sm:text-xs"
       aria-label="表示テーマ"
       role="group"
     >
@@ -68,7 +68,7 @@ export function ThemeToggle() {
             key={option.value}
             type="button"
             aria-pressed={isActive}
-            className={`rounded-full px-2.5 py-1 transition ${
+            className={`rounded-full px-2 py-1 transition sm:px-2.5 ${
               isActive ? "bg-ink text-surface shadow-sm" : "hover:bg-badge hover:text-ink"
             }`}
             onClick={() => handleChange(option.value)}

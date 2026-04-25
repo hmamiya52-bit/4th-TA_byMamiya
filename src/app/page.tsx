@@ -23,6 +23,13 @@ const actionLabels: Record<Material["type"], string> = {
   申請フォーム: "申請する",
 };
 
+const examSectionIds: Record<string, string> = {
+  第一級陸上無線技術士: "radio-engineer",
+  基本情報技術者試験: "fe",
+  ネットワークスペシャリスト: "network-specialist",
+  応用情報技術者試験: "ap",
+};
+
 const installGuides = [
   {
     title: "iPhoneの方（Safari）",
@@ -66,8 +73,8 @@ export default function Home() {
       </header>
 
       <section className="border-b border-line bg-surface">
-        <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-3 text-xs leading-6 text-muted sm:px-6 lg:px-8">
-          <p className="font-bold text-ink">最終更新日：2026/04/25</p>
+        <div className="mx-auto flex max-w-6xl flex-col gap-0.5 px-5 py-2 text-[10px] leading-5 text-muted sm:px-6 sm:text-[11px] lg:px-8">
+          <p className="font-semibold">最終更新日：2026/04/25</p>
           <p>2026年4月からITエンジニアになりました。せっかくなのでGoogleドライブで教材を管理していたのを大幅リニューアル。</p>
         </div>
       </section>
@@ -86,9 +93,10 @@ export default function Home() {
           {exams.map((exam) => {
             const examMaterials = materials.filter((material) => material.exam === exam);
             const note = examNotes[exam];
+            const sectionId = examSectionIds[exam];
 
             return (
-              <section key={exam} aria-labelledby={`${exam}-heading`}>
+              <section key={exam} id={sectionId} aria-labelledby={`${exam}-heading`}>
                 <div className="mb-5">
                   <div className="flex items-center gap-3">
                     <span className="h-px flex-1 bg-line" />
