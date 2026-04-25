@@ -1,0 +1,154 @@
+import { exams, materials, type Material } from "@/data/materials";
+
+export const dynamic = "force-static";
+
+const typeStyles: Record<Material["type"], string> = {
+  PowerPoint: "bg-sky-50 text-sky-800 ring-sky-200",
+  PDF: "bg-rose-50 text-rose-800 ring-rose-200",
+  Webアプリ: "bg-teal-50 text-teal-800 ring-teal-200",
+  動画: "bg-amber-50 text-amber-800 ring-amber-200",
+};
+
+export default function Home() {
+  return (
+    <main className="min-h-screen">
+      <header className="border-b border-line/80 bg-white/88 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
+          <a href="#top" className="text-base font-bold text-ink sm:text-lg">
+            4th TA by Mamiya
+          </a>
+          <nav aria-label="主要ナビゲーション" className="flex items-center gap-4 text-sm font-medium text-muted">
+            <a className="transition hover:text-accent" href="#about">
+              概要
+            </a>
+            <a className="transition hover:text-accent" href="#materials">
+              教材
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <section id="top" className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-20 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
+          <div>
+            <p className="mb-4 text-sm font-bold text-teal">無料教材リンク集</p>
+            <h1 className="max-w-3xl text-4xl font-bold leading-tight text-ink sm:text-5xl">
+              資格学習を、必要な教材にすぐ届く形へ。
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
+              第一級陸上無線技術士、基本情報技術者試験、応用情報技術者試験、ネットワークスペシャリストの無料教材を資格ごとに整理しています。
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#materials"
+                className="inline-flex min-h-12 items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:bg-blue-700"
+              >
+                教材を見る
+              </a>
+              <a
+                href="#about"
+                className="inline-flex min-h-12 items-center justify-center rounded-md border border-line bg-white px-5 py-3 text-sm font-bold text-ink transition hover:border-accent hover:text-accent"
+              >
+                サイト概要
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-lg border border-line bg-white p-6 shadow-soft">
+            <dl className="grid grid-cols-2 gap-5">
+              <div>
+                <dt className="text-sm text-muted">掲載教材</dt>
+                <dd className="mt-2 text-3xl font-bold text-ink">{materials.length}</dd>
+              </div>
+              <div>
+                <dt className="text-sm text-muted">対象資格</dt>
+                <dd className="mt-2 text-3xl font-bold text-ink">{exams.length}</dd>
+              </div>
+              <div className="col-span-2 border-t border-line pt-5">
+                <dt className="text-sm text-muted">構成</dt>
+                <dd className="mt-2 text-base font-bold text-ink">講義資料・PDF・Webアプリ・動画</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="border-y border-line bg-white">
+        <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
+            <h2 className="text-2xl font-bold text-ink">サイト概要</h2>
+            <p className="text-base leading-8 text-muted">
+              このサイトは、資格学習を始める人が教材を探す時間を減らし、学習に集中できるように作成した無料教材の配布・紹介ページです。
+              教材ごとに試験区分、種別、説明を確認し、必要なリンクを新しいタブで開けます。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="materials" className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-sm font-bold text-teal">Materials</p>
+            <h2 className="mt-2 text-3xl font-bold text-ink">無料教材一覧</h2>
+          </div>
+          <p className="max-w-xl text-sm leading-7 text-muted">
+            対象資格ごとに教材を整理しています。仮URLの教材は、公開先が決まり次第差し替えてください。
+          </p>
+        </div>
+
+        <div className="space-y-12">
+          {exams.map((exam) => {
+            const examMaterials = materials.filter((material) => material.exam === exam);
+
+            return (
+              <section key={exam} aria-labelledby={`${exam}-heading`}>
+                <div className="mb-5 flex items-center gap-3">
+                  <span className="h-px flex-1 bg-line" />
+                  <h3 id={`${exam}-heading`} className="text-lg font-bold text-ink sm:text-xl">
+                    {exam}
+                  </h3>
+                  <span className="h-px flex-1 bg-line" />
+                </div>
+                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                  {examMaterials.map((material) => (
+                    <article
+                      key={material.title}
+                      className="flex min-h-72 flex-col rounded-lg border border-line bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-soft"
+                    >
+                      <div className="mb-4 flex flex-wrap items-center gap-2">
+                        <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">
+                          {material.exam}
+                        </span>
+                        <span className={`rounded-full px-3 py-1 text-xs font-bold ring-1 ${typeStyles[material.type]}`}>
+                          {material.type}
+                        </span>
+                      </div>
+                      <h4 className="text-lg font-bold leading-7 text-ink">{material.title}</h4>
+                      <p className="mt-3 flex-1 text-sm leading-7 text-muted">{material.description}</p>
+                      <a
+                        href={material.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-6 inline-flex min-h-11 items-center justify-center rounded-md bg-ink px-4 py-2 text-sm font-bold text-white transition hover:bg-accent"
+                        aria-label={`${material.title}を新しいタブで開く`}
+                      >
+                        開く
+                      </a>
+                    </article>
+                  ))}
+                </div>
+              </section>
+            );
+          })}
+        </div>
+      </section>
+
+      <footer className="border-t border-line bg-white">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+          <p className="font-medium text-ink">4th TA by Mamiya</p>
+          <p>無料教材のURLは src/data/materials.ts から更新できます。</p>
+        </div>
+      </footer>
+    </main>
+  );
+}
