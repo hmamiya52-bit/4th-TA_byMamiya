@@ -9,6 +9,7 @@ const typeStyles: Record<Material["type"], string> = {
   PDF: "bg-rose-50 text-rose-800 ring-rose-200",
   Webアプリ: "bg-teal-50 text-teal-800 ring-teal-200",
   動画: "bg-amber-50 text-amber-800 ring-amber-200",
+  申請フォーム: "bg-violet-50 text-violet-800 ring-violet-200",
 };
 
 const installGuides = [

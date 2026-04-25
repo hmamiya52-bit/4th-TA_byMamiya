@@ -1,4 +1,4 @@
-export type MaterialType = "PowerPoint" | "PDF" | "Webアプリ" | "動画";
+export type MaterialType = "PowerPoint" | "PDF" | "Webアプリ" | "動画" | "申請フォーム";
 
 export type Material = {
   title: string;
@@ -63,6 +63,14 @@ export const materials: Material[] = [
       "ネットワークスペシャリスト午後試験対策用の学習Webアプリです。午後試験突破に必要な基礎知識の暗記や、午後問題演習の学習計画をサポートします。午後試験の過去問の解答欄・解答例も一元化しています。",
     url: "https://mamiya-nwapp.vercel.app/",
     recommended: true,
+  },
+  {
+    title: "アカウント申請",
+    exam: "ネットワークスペシャリスト",
+    type: "申請フォーム",
+    description:
+      "ネットワークスペシャリスト学習アプリを使用する方は、まずはこちらで申請してください。（申請は10秒ほどで終わります。）",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSfRHSGpnpWnyhpl5dxfdmkxix7ro_PrEiHaYwMJdWYa6Gmtfw/viewform?usp=publish-editor",
   },
 ];
 
