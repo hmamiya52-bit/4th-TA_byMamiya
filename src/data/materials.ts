@@ -18,6 +18,13 @@ export const materials: Material[] = [
     url: "https://drive.google.com/file/d/1izRxmQrww_Or2b2lI4_jypyk-RG8azzT/view?usp=drive_link",
   },
   {
+    title: "法規　超直前対策プリント",
+    exam: "第一級陸上無線技術士",
+    type: "PDF",
+    description: "試験前日～当日から法規の勉強を始める人向けの資料です。",
+    url: "https://drive.google.com/file/d/1yCJpU5fCCFQBIDzGo6itNGcZ3PsWQm2B/view?usp=drive_link",
+  },
+  {
     title: "アルゴリズム攻略　講義資料",
     exam: "基本情報技術者試験",
     type: "PowerPoint",
@@ -52,7 +59,8 @@ export const materials: Material[] = [
     title: "ネットワークスペシャリスト 学習アプリ",
     exam: "ネットワークスペシャリスト",
     type: "Webアプリ",
-    description: "ネットワークスペシャリスト対策用の学習Webアプリです。",
+    description:
+      "ネットワークスペシャリスト午後試験対策用の学習Webアプリです。午後試験突破に必要な基礎知識の暗記や、午後問題演習の学習計画をサポートします。午後試験の過去問の解答欄・解答例も一元化しています。",
     url: "https://mamiya-nwapp.vercel.app/",
     recommended: true,
   },

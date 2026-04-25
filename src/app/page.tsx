@@ -11,6 +11,31 @@ const typeStyles: Record<Material["type"], string> = {
   動画: "bg-amber-50 text-amber-800 ring-amber-200",
 };
 
+const installGuides = [
+  {
+    title: "iPhoneの方（Safari）",
+    steps: ["Safariで学習アプリのURLを開く。", "画面下の「共有ボタン（四角に↑）」を押す。", "「ホーム画面に追加」を選ぶ。"],
+  },
+  {
+    title: "Androidの方（Chrome）",
+    steps: [
+      "Chromeで学習アプリのURLを開く。",
+      "画面に出てくる「ホーム画面に〜〜を追加」というバナーをタップする。",
+      "表示されない場合は、右上のメニューから「アプリをインストール」を選ぶ。",
+    ],
+  },
+  {
+    title: "PCの方（Chrome / Edge）",
+    steps: [
+      "対象ブラウザは Google Chrome または Microsoft Edge です。",
+      "ブラウザで学習アプリのURLを開く。",
+      "アドレスバー右側のインストールアイコンをクリックする。",
+      "表示されたポップアップで「インストール」を選ぶ。",
+      "デスクトップやタスクバーにアイコンが表示され、次回から直接起動できます。",
+    ],
+  },
+];
+
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -153,6 +178,36 @@ export default function Home() {
               </section>
             );
           })}
+        </div>
+      </section>
+
+      <section className="border-t border-line bg-white">
+        <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 lg:px-8">
+          <div className="mb-8">
+            <p className="text-sm font-bold text-teal">Install</p>
+            <h2 className="mt-2 text-3xl font-bold text-ink">インストール手順（読まなくてもOK、簡単）</h2>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-muted">
+              学習Webアプリは、スマホやPCのホーム画面に追加して使えます。基本情報技術者試験とネットワークスペシャリストの学習アプリで利用できます。
+            </p>
+          </div>
+
+          <div className="grid gap-5 lg:grid-cols-3">
+            {installGuides.map((guide) => (
+              <section key={guide.title} className="rounded-lg border border-line bg-paper p-5">
+                <h3 className="text-base font-bold text-ink">{guide.title}</h3>
+                <ol className="mt-4 space-y-3 text-sm leading-7 text-muted">
+                  {guide.steps.map((step, index) => (
+                    <li key={step} className="flex gap-3">
+                      <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-xs font-bold text-accent ring-1 ring-line">
+                        {index + 1}
+                      </span>
+                      <span>{step}</span>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            ))}
+          </div>
         </div>
       </section>
 
