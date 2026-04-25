@@ -37,10 +37,7 @@ export function HeroSection() {
         <div className="rounded-lg border border-line bg-paper p-4 shadow-soft sm:p-5">
           <div className="mb-4 flex items-center justify-between gap-3">
             <div>
-              <p className="text-sm font-bold text-ink">教材プレビュー</p>
-              <p className="mt-1 text-xs leading-5 text-muted">
-                自分に合いそうな教材を、使い始める前にざっくり見当づけられます。
-              </p>
+              <p className="text-sm font-bold text-ink">教材の雰囲気</p>
             </div>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">

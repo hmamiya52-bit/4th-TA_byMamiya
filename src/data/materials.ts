@@ -62,6 +62,14 @@ export const materials: Material[] = [
     thumbnail: "/materials/fe-sample-problems.png",
   },
   {
+    title: "アカウント申請",
+    exam: "ネットワークスペシャリスト",
+    type: "申請フォーム",
+    description:
+      "ネットワークスペシャリスト学習アプリを使用する方は、まずはこちらで申請してください。（申請は10秒ほどで終わります。）",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSfRHSGpnpWnyhpl5dxfdmkxix7ro_PrEiHaYwMJdWYa6Gmtfw/viewform?usp=publish-editor",
+  },
+  {
     title: "ネットワークスペシャリスト 学習アプリ",
     exam: "ネットワークスペシャリスト",
     type: "Webアプリ",
@@ -70,14 +78,6 @@ export const materials: Material[] = [
     url: "https://mamiya-nwapp.vercel.app/",
     thumbnail: "/materials/nw-learning-app.png",
     recommended: true,
-  },
-  {
-    title: "アカウント申請",
-    exam: "ネットワークスペシャリスト",
-    type: "申請フォーム",
-    description:
-      "ネットワークスペシャリスト学習アプリを使用する方は、まずはこちらで申請してください。（申請は10秒ほどで終わります。）",
-    url: "https://docs.google.com/forms/d/e/1FAIpQLSfRHSGpnpWnyhpl5dxfdmkxix7ro_PrEiHaYwMJdWYa6Gmtfw/viewform?usp=publish-editor",
   },
   {
     title: "午前試験対策　動画",
@@ -95,5 +95,5 @@ export const exams = Array.from(new Set(materials.map((material) => material.exa
 export const examNotes: Record<string, string> = {
   基本情報技術者試験: "科目Aについては、過去問道場（ネットで検索）を使用してください。",
   応用情報技術者試験: "午後試験対策講座は、対面でしか実施していません。講義資料は非公開です。",
-  ネットワークスペシャリスト: "アプリの使用は、管理者によるアカウント発行申請が必要です。",
+  ネットワークスペシャリスト: "アプリを使用する前に、アカウントの発行申請を行ってください。",
 };
