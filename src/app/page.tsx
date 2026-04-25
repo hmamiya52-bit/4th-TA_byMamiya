@@ -15,7 +15,7 @@ const typeStyles: Record<Material["type"], string> = {
 };
 
 const actionLabels: Record<Material["type"], string> = {
-  スライド: "スライドを開く",
+  スライド: "資料を開く",
   PDF: "資料を開く",
   Webアプリ: "アプリを開く",
   動画: "動画を開く",
