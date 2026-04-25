@@ -19,7 +19,7 @@ npm run dev
 npm run build
 ```
 
-静的エクスポート設定を有効にしているため、ビルド成果物は `out/` に出力されます。
+トップページは静的にプリレンダーされます。Vercel では Framework Preset を `Next.js` にして、出力先はデフォルト設定のままにします。
 
 ## 教材URLの差し替え方法
 
@@ -43,7 +43,7 @@ npm run build
 2. Dashboard の `Add New...` から `Project` を選びます。
 3. GitHub 連携で `hmamiya52-bit/4th-TA_byMamiya` を選択します。
 4. Framework Preset が `Next.js` になっていることを確認します。
-5. Build Command は `npm run build`、Output Directory は `out` を指定します。
+5. Build Command は `npm run build`、Output Directory は未設定のままにします。
 6. `Deploy` を押すと公開されます。
 
 教材URLを更新したい場合は、GitHub上で `src/data/materials.ts` を編集してコミットすると、Vercel が自動で再デプロイします。
