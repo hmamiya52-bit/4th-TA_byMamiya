@@ -1,4 +1,5 @@
 import { examNotes, exams, materials, type Material } from "@/data/materials";
+import { HeroDesignPreview } from "@/components/HeroDesignPreview";
 
 export const dynamic = "force-static";
 
@@ -53,47 +54,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section id="top" className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-20 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
-          <div>
-            <p className="mb-4 text-sm font-bold text-teal">オリジナル教材</p>
-            <h1 className="max-w-3xl text-4xl font-bold leading-tight text-ink sm:text-5xl">
-              <span className="block">試験対策を、</span>
-              <span className="block">わかりやすく、</span>
-              <span className="block">続けやすく。</span>
-            </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              このサイトでは、資格試験の学習を支援するために作成したオリジナル教材を公開しています。
-              重要ポイントの整理、問題演習、知識の定着を助ける資料やアプリを、資格ごとにまとめています。
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#materials"
-                className="inline-flex min-h-12 items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:bg-blue-700"
-              >
-                教材を見る
-              </a>
-            </div>
-          </div>
-
-          <div className="rounded-lg border border-line bg-white p-6 shadow-soft">
-            <dl className="grid grid-cols-2 gap-5">
-              <div>
-                <dt className="text-sm text-muted">掲載教材</dt>
-                <dd className="mt-2 text-3xl font-bold text-ink">{materials.length}</dd>
-              </div>
-              <div>
-                <dt className="text-sm text-muted">対象資格</dt>
-                <dd className="mt-2 text-3xl font-bold text-ink">{exams.length}</dd>
-              </div>
-              <div className="col-span-2 border-t border-line pt-5">
-                <dt className="text-sm text-muted">構成</dt>
-                <dd className="mt-2 text-base font-bold text-ink">講義資料・PDF・Webアプリ・動画</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </section>
+      <HeroDesignPreview materials={materials} examCount={exams.length} />
 
       <section id="materials" className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
