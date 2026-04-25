@@ -14,6 +14,14 @@ const typeStyles: Record<Material["type"], string> = {
   申請フォーム: "bg-violet-50 text-violet-800 ring-violet-200",
 };
 
+const actionLabels: Record<Material["type"], string> = {
+  PowerPoint: "資料を開く",
+  PDF: "資料を開く",
+  Webアプリ: "アプリを開く",
+  動画: "動画を開く",
+  申請フォーム: "申請する",
+};
+
 const installGuides = [
   {
     title: "iPhoneの方（Safari）",
@@ -124,7 +132,7 @@ export default function Home() {
                         className="mt-6 inline-flex min-h-11 items-center justify-center rounded-md bg-ink px-4 py-2 text-sm font-bold text-white transition hover:bg-accent"
                         aria-label={`${material.title}を新しいタブで開く`}
                       >
-                        開く
+                        {actionLabels[material.type]}
                       </a>
                     </article>
                   ))}
