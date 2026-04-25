@@ -54,14 +54,6 @@ export const materials: Material[] = [
     thumbnail: "/materials/fe-sample-problems.png",
   },
   {
-    title: "午前試験対策　動画",
-    exam: "応用情報技術者試験",
-    type: "動画",
-    description:
-      "作成者が、「IT全然分からん」と言っている時代に作ったので、説明力が雑魚なので大目に見てください。今も分かりませんが。",
-    url: "https://drive.google.com/file/d/1h-Bxzcyyt3_3CdfxxSO3TIU0YeqOEZS-/view?usp=drive_link",
-  },
-  {
     title: "ネットワークスペシャリスト 学習アプリ",
     exam: "ネットワークスペシャリスト",
     type: "Webアプリ",
@@ -77,6 +69,15 @@ export const materials: Material[] = [
     description:
       "ネットワークスペシャリスト学習アプリを使用する方は、まずはこちらで申請してください。（申請は10秒ほどで終わります。）",
     url: "https://docs.google.com/forms/d/e/1FAIpQLSfRHSGpnpWnyhpl5dxfdmkxix7ro_PrEiHaYwMJdWYa6Gmtfw/viewform?usp=publish-editor",
+  },
+  {
+    title: "午前試験対策　動画",
+    exam: "応用情報技術者試験",
+    type: "動画",
+    description:
+      "作成者が、「IT全然分からん」と言っている時代に作ったので、説明力が雑魚なので大目に見てください。今も分かりませんが。J官時代に作成した動画なので、所々にJ用語が出ますが、まぁ気にしないでください。",
+    url: "https://drive.google.com/file/d/1h-Bxzcyyt3_3CdfxxSO3TIU0YeqOEZS-/view?usp=drive_link",
+    thumbnail: "/materials/ap-morning-video.png",
   },
 ];
 
