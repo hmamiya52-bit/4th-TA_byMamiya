@@ -60,6 +60,7 @@ export const materials: Material[] = [
     description:
       "ネットワークスペシャリスト午後試験対策用の学習Webアプリです。午後試験突破に必要な基礎知識の暗記や、午後問題演習の学習計画をサポートします。午後試験の過去問の解答欄・解答例も一元化しています。",
     url: "https://mamiya-nwapp.vercel.app/",
+    thumbnail: "/materials/nw-learning-app.png",
     recommended: true,
   },
   {
