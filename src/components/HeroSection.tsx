@@ -1,13 +1,17 @@
 import type { Material } from "@/data/materials";
-import { MaterialPreview } from "@/components/MaterialPreview";
 
 type HeroSectionProps = {
   materials: Material[];
 };
 
-export function HeroSection({ materials }: HeroSectionProps) {
-  const previewMaterials = materials.slice(0, 4);
+const heroPreviewImages = [
+  { src: "/materials/hero-preview-1.png", alt: "第一級陸上無線技術士の教材プレビュー" },
+  { src: "/materials/hero-preview-2.png", alt: "無線工学Bの教材プレビュー" },
+  { src: "/materials/hero-preview-3.png", alt: "基本情報技術者試験の教材プレビュー" },
+  { src: "/materials/hero-preview-4.png", alt: "ネットワークスペシャリスト学習アプリのプレビュー" },
+];
 
+export function HeroSection({ materials }: HeroSectionProps) {
   return (
     <section id="top" className="border-b border-line bg-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-6 sm:py-20 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
@@ -36,15 +40,19 @@ export function HeroSection({ materials }: HeroSectionProps) {
           <div className="mb-4 flex items-center justify-between gap-3">
             <div>
               <p className="text-sm font-bold text-ink">教材プレビュー</p>
-              <p className="mt-1 text-xs leading-5 text-muted">掲載教材の雰囲気を一覧前に確認できます。</p>
+              <p className="mt-1 text-xs leading-5 text-muted">実際の資料やアプリ画面から、学習のイメージをつかめます。</p>
             </div>
             <span className="rounded-full bg-white px-3 py-1 text-xs font-bold text-teal ring-1 ring-line">
               {materials.length}件
             </span>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
-            {previewMaterials.map((material) => (
-              <MaterialPreview key={material.title} material={material} compact />
+            {heroPreviewImages.map((image) => (
+              <div key={image.src} className="overflow-hidden rounded-lg border border-line bg-white shadow-sm">
+                <div className="aspect-[4/3] bg-slate-100">
+                  <img src={image.src} alt={image.alt} className="h-full w-full object-contain" loading="eager" />
+                </div>
+              </div>
             ))}
           </div>
         </div>
