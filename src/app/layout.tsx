@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "第４術科協会（旧間宮塾） | 資格学習の無料教材リンク集",
+  title: "第４術科協会（旧間宮塾） | 資格試験対策のオリジナル教材",
   description:
-    "第一級陸上無線技術士、基本情報技術者試験、応用情報技術者試験、ネットワークスペシャリストの無料教材を整理した資格学習サイトです。",
+    "資格試験の学習を支援するために作成したオリジナル教材を公開しています。資料、問題集、学習アプリ、動画を資格ごとにまとめています。",
 };
 
 export default function RootLayout({

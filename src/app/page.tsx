@@ -58,12 +58,12 @@ export default function Home() {
       <section id="top" className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-20 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-bold text-teal">無料教材リンク集</p>
+            <p className="mb-4 text-sm font-bold text-teal">オリジナル教材</p>
             <h1 className="max-w-3xl text-4xl font-bold leading-tight text-ink sm:text-5xl">
-              資格学習を、必要な教材にすぐ届く形へ。
+              試験対策を、わかりやすく、続けやすく。
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
-              第一級陸上無線技術士、基本情報技術者試験、応用情報技術者試験、ネットワークスペシャリストの無料教材を資格ごとに整理しています。
+              資格試験の学習を支援するために作成したオリジナル教材を、資格ごとに整理して公開しています。
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
@@ -105,8 +105,8 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
             <h2 className="text-2xl font-bold text-ink">サイト概要</h2>
             <p className="text-base leading-8 text-muted">
-              このサイトは、資格学習を始める人が教材を探す時間を減らし、学習に集中できるように作成した無料教材の配布・紹介ページです。
-              教材ごとに試験区分、種別、説明を確認し、必要なリンクを新しいタブで開けます。
+              このサイトでは、資格試験の学習を支援するために作成したオリジナル教材を公開しています。
+              重要ポイントの整理、問題演習、知識の定着を助ける資料やアプリを、資格ごとにまとめています。
             </p>
           </div>
         </div>
