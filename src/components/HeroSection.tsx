@@ -1,17 +1,15 @@
-import type { Material } from "@/data/materials";
-
-type HeroSectionProps = {
-  materials: Material[];
-};
-
 const heroPreviewImages = [
-  { src: "/materials/hero-preview-1.png", alt: "第一級陸上無線技術士の教材プレビュー" },
-  { src: "/materials/hero-preview-2.png", alt: "無線工学Bの教材プレビュー" },
-  { src: "/materials/hero-preview-3.png", alt: "基本情報技術者試験の教材プレビュー" },
-  { src: "/materials/hero-preview-4.png", alt: "ネットワークスペシャリスト学習アプリのプレビュー" },
+  { src: "/materials/hero-preview-1.png", alt: "陸技 無線工学A教材のプレビュー", title: "陸技　無線工学A教材" },
+  { src: "/materials/hero-preview-2.png", alt: "陸技 無線工学B教材のプレビュー", title: "陸技　無線工学B教材" },
+  { src: "/materials/hero-preview-3.png", alt: "基本情報技術者教材のプレビュー", title: "基本情報技術者教材" },
+  {
+    src: "/materials/hero-preview-4.png",
+    alt: "ネットワークスペシャリスト学習アプリのプレビュー",
+    title: "ネットワークスペシャリスト学習アプリ",
+  },
 ];
 
-export function HeroSection({ materials }: HeroSectionProps) {
+export function HeroSection() {
   return (
     <section id="top" className="border-b border-line bg-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-6 sm:py-20 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
@@ -40,11 +38,10 @@ export function HeroSection({ materials }: HeroSectionProps) {
           <div className="mb-4 flex items-center justify-between gap-3">
             <div>
               <p className="text-sm font-bold text-ink">教材プレビュー</p>
-              <p className="mt-1 text-xs leading-5 text-muted">実際の資料やアプリ画面から、学習のイメージをつかめます。</p>
+              <p className="mt-1 text-xs leading-5 text-muted">
+                自分に合いそうな教材を、使い始める前にざっくり見当づけられます。
+              </p>
             </div>
-            <span className="rounded-full bg-white px-3 py-1 text-xs font-bold text-teal ring-1 ring-line">
-              {materials.length}件
-            </span>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {heroPreviewImages.map((image) => (
@@ -52,6 +49,7 @@ export function HeroSection({ materials }: HeroSectionProps) {
                 <div className="aspect-[4/3] bg-slate-100">
                   <img src={image.src} alt={image.alt} className="h-full w-full object-contain" loading="eager" />
                 </div>
+                <p className="px-3 py-2 text-center text-xs font-bold leading-5 text-muted">{image.title}</p>
               </div>
             ))}
           </div>

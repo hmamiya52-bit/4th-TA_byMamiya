@@ -55,7 +55,7 @@ export default function Home() {
         </div>
       </header>
 
-      <HeroSection materials={materials} />
+      <HeroSection />
 
       <section id="materials" className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
