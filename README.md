@@ -25,7 +25,7 @@ npm run build
 
 教材データは `src/data/materials.ts` にまとめています。
 
-仮URLを差し替える場合は、対象教材の `url` を実際のURLに変更してください。タイトル、説明、試験区分、種別も同じファイルで編集できます。
+教材URLを変更する場合は、対象教材の `url` を新しいURLに変更してください。タイトル、説明、試験区分、種別、おすすめ表示も同じファイルで編集できます。
 
 ```ts
 {
@@ -33,7 +33,7 @@ npm run build
   exam: "基本情報技術者試験",
   type: "PDF",
   description: "午後問題対策のサンプル問題集です。",
-  url: "https://example.com/fe-afternoon-sample.pdf",
+  url: "https://drive.google.com/file/d/1qrT_TOjSMU6lFC6u3WnAyr-XHySZPFhs/view?usp=drive_link",
 }
 ```
 

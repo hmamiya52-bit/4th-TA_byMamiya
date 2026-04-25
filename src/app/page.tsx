@@ -2,6 +2,8 @@ import { exams, materials, type Material } from "@/data/materials";
 
 export const dynamic = "force-static";
 
+const siteName = "第４術科協会（旧間宮塾）";
+
 const typeStyles: Record<Material["type"], string> = {
   PowerPoint: "bg-sky-50 text-sky-800 ring-sky-200",
   PDF: "bg-rose-50 text-rose-800 ring-rose-200",
@@ -15,7 +17,7 @@ export default function Home() {
       <header className="border-b border-line/80 bg-white/88 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
           <a href="#top" className="text-base font-bold text-ink sm:text-lg">
-            4th TA by Mamiya
+            {siteName}
           </a>
           <nav aria-label="主要ナビゲーション" className="flex items-center gap-4 text-sm font-medium text-muted">
             <a className="transition hover:text-accent" href="#about">
@@ -91,9 +93,7 @@ export default function Home() {
             <p className="text-sm font-bold text-teal">Materials</p>
             <h2 className="mt-2 text-3xl font-bold text-ink">無料教材一覧</h2>
           </div>
-          <p className="max-w-xl text-sm leading-7 text-muted">
-            対象資格ごとに教材を整理しています。仮URLの教材は、公開先が決まり次第差し替えてください。
-          </p>
+          <p className="max-w-xl text-sm leading-7 text-muted">対象資格ごとに教材を整理しています。</p>
         </div>
 
         <div className="space-y-12">
@@ -113,9 +113,18 @@ export default function Home() {
                   {examMaterials.map((material) => (
                     <article
                       key={material.title}
-                      className="flex min-h-72 flex-col rounded-lg border border-line bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-soft"
+                      className={`flex min-h-72 flex-col rounded-lg border p-5 transition hover:-translate-y-0.5 hover:shadow-soft ${
+                        material.recommended
+                          ? "border-accent bg-blue-50/45 shadow-soft ring-1 ring-accent/20"
+                          : "border-line bg-white shadow-sm"
+                      }`}
                     >
                       <div className="mb-4 flex flex-wrap items-center gap-2">
+                        {material.recommended ? (
+                          <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-white">
+                            おすすめ
+                          </span>
+                        ) : null}
                         <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">
                           {material.exam}
                         </span>
@@ -145,7 +154,7 @@ export default function Home() {
 
       <footer className="border-t border-line bg-white">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <p className="font-medium text-ink">4th TA by Mamiya</p>
+          <p className="font-medium text-ink">{siteName}</p>
           <p>無料教材のURLは src/data/materials.ts から更新できます。</p>
         </div>
       </footer>
