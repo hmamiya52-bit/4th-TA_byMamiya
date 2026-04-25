@@ -197,7 +197,6 @@ export default function Home() {
       <footer className="border-t border-line bg-white">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <p className="font-medium text-ink">{siteName}</p>
-          <p>無料教材のURLは src/data/materials.ts から更新できます。</p>
         </div>
       </footer>
     </main>
