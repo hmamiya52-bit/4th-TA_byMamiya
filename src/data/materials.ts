@@ -62,11 +62,11 @@ export const materials: Material[] = [
     thumbnail: "/materials/fe-sample-problems.png",
   },
   {
-    title: "アカウント申請",
+    title: "アカウント登録",
     exam: "ネットワークスペシャリスト",
     type: "申請フォーム",
     description:
-      "ネットワークスペシャリスト学習アプリを使用する方は、まずはこちらで申請してください。（申請は10秒ほどで終わります。）",
+      "ネットワークスペシャリスト学習アプリを使用する方は、まずはこちらで登録申請をしてください。１分以内に登録でき、アカウントは即時に払い出されます。",
     url: "https://docs.google.com/forms/d/e/1FAIpQLSfRHSGpnpWnyhpl5dxfdmkxix7ro_PrEiHaYwMJdWYa6Gmtfw/viewform?usp=publish-editor",
   },
   {
