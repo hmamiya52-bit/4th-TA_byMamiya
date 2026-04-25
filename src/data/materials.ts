@@ -34,6 +34,7 @@ export const materials: Material[] = [
     description:
       "アルゴリズム分野をわかりやすく解説したスライド資料です。現在、アルゴリズム以外の分野は非公開にしています。",
     url: "https://drive.google.com/file/d/1J_WomAHSUIdguFPAhexk2l78ItZJ-kIT/view?usp=drive_link",
+    thumbnail: "/materials/fe-algorithm-slides.png",
   },
   {
     title: "アルゴリズム強化訓練アプリ",
@@ -41,6 +42,7 @@ export const materials: Material[] = [
     type: "Webアプリ",
     description: "午後問題をブラウザで学習できるWebアプリです。",
     url: "https://fe-learning-app.vercel.app/",
+    thumbnail: "/materials/fe-training-app.png",
     recommended: true,
   },
   {
@@ -49,6 +51,7 @@ export const materials: Material[] = [
     type: "PDF",
     description: "IPAが公式で出しているサンプル問題を切り貼りした問題集です。",
     url: "https://drive.google.com/file/d/1qrT_TOjSMU6lFC6u3WnAyr-XHySZPFhs/view?usp=drive_link",
+    thumbnail: "/materials/fe-sample-problems.png",
   },
   {
     title: "午前試験対策　動画",
