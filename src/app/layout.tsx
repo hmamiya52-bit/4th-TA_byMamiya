@@ -12,9 +12,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const themeScript = `
+    (() => {
+      try {
+        const savedMode = window.localStorage.getItem("theme-mode");
+        const mode = savedMode === "light" || savedMode === "dark" || savedMode === "system" ? savedMode : "system";
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.themeMode = mode;
+        document.documentElement.dataset.theme = mode === "system" ? (prefersDark ? "dark" : "light") : mode;
+      } catch {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.dataset.themeMode = "system";
+        document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
+      }
+    })();
+  `;
+
   return (
-    <html lang="ja">
-      <body>{children}</body>
+    <html lang="ja" suppressHydrationWarning>
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {children}
+      </body>
     </html>
   );
 }

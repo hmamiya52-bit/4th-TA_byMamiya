@@ -1,6 +1,7 @@
 import { examNotes, exams, materials, type Material } from "@/data/materials";
 import { HeroSection } from "@/components/HeroSection";
 import { MaterialPreview } from "@/components/MaterialPreview";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const dynamic = "force-static";
 
@@ -51,7 +52,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <header className="border-b border-line/80 bg-surface/88 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-6 lg:px-8">
           <a href="#top" className="text-base font-bold text-ink sm:text-lg">
             {siteName}
           </a>
@@ -59,6 +60,7 @@ export default function Home() {
             <a className="transition hover:text-accent" href="#materials">
               教材
             </a>
+            <ThemeToggle />
           </nav>
         </div>
       </header>
