@@ -1,4 +1,4 @@
-import { exams, materials, type Material } from "@/data/materials";
+import { examNotes, exams, materials, type Material } from "@/data/materials";
 
 export const dynamic = "force-static";
 
@@ -99,15 +99,19 @@ export default function Home() {
         <div className="space-y-12">
           {exams.map((exam) => {
             const examMaterials = materials.filter((material) => material.exam === exam);
+            const note = examNotes[exam];
 
             return (
               <section key={exam} aria-labelledby={`${exam}-heading`}>
-                <div className="mb-5 flex items-center gap-3">
-                  <span className="h-px flex-1 bg-line" />
-                  <h3 id={`${exam}-heading`} className="text-lg font-bold text-ink sm:text-xl">
-                    {exam}
-                  </h3>
-                  <span className="h-px flex-1 bg-line" />
+                <div className="mb-5">
+                  <div className="flex items-center gap-3">
+                    <span className="h-px flex-1 bg-line" />
+                    <h3 id={`${exam}-heading`} className="text-lg font-bold text-ink sm:text-xl">
+                      {exam}
+                    </h3>
+                    <span className="h-px flex-1 bg-line" />
+                  </div>
+                  {note ? <p className="mx-auto mt-3 max-w-3xl text-center text-xs leading-6 text-muted">{note}</p> : null}
                 </div>
                 <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
                   {examMaterials.map((material) => (

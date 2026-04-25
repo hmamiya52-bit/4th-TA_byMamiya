@@ -11,14 +11,14 @@ export type Material = {
 
 export const materials: Material[] = [
   {
-    title: "第一級陸上無線技術士 パワーポイント資料",
+    title: "一陸技対策会　講義資料",
     exam: "第一級陸上無線技術士",
     type: "PowerPoint",
     description: "世界一わかりやすい陸技解説を目指して作ったスライド資料です。",
     url: "https://drive.google.com/file/d/1izRxmQrww_Or2b2lI4_jypyk-RG8azzT/view?usp=drive_link",
   },
   {
-    title: "基本情報技術者試験 アルゴリズム解説パワーポイント資料",
+    title: "アルゴリズム攻略　講義資料",
     exam: "基本情報技術者試験",
     type: "PowerPoint",
     description:
@@ -26,7 +26,7 @@ export const materials: Material[] = [
     url: "https://drive.google.com/file/d/1J_WomAHSUIdguFPAhexk2l78ItZJ-kIT/view?usp=drive_link",
   },
   {
-    title: "基本情報技術者試験 午後問題学習アプリ",
+    title: "アルゴリズム強化訓練アプリ",
     exam: "基本情報技術者試験",
     type: "Webアプリ",
     description: "午後問題をブラウザで学習できるWebアプリです。",
@@ -34,14 +34,14 @@ export const materials: Material[] = [
     recommended: true,
   },
   {
-    title: "基本情報技術者試験 午後問題サンプル問題集",
+    title: "科目Ｂ公式サンプル問題集",
     exam: "基本情報技術者試験",
     type: "PDF",
     description: "IPAが公式で出しているサンプル問題を切り貼りした問題集です。",
     url: "https://drive.google.com/file/d/1qrT_TOjSMU6lFC6u3WnAyr-XHySZPFhs/view?usp=drive_link",
   },
   {
-    title: "応用情報技術者試験 勉強論解説動画",
+    title: "午前試験対策　動画",
     exam: "応用情報技術者試験",
     type: "動画",
     description:
@@ -59,3 +59,9 @@ export const materials: Material[] = [
 ];
 
 export const exams = Array.from(new Set(materials.map((material) => material.exam)));
+
+export const examNotes: Record<string, string> = {
+  基本情報技術者試験: "科目Aについては、過去問道場（ネットで検索）を使用してください。",
+  応用情報技術者試験: "午後試験対策講座は、対面でしか実施していません。講義資料は非公開です。",
+  ネットワークスペシャリスト: "アプリの使用は、管理者によるアカウント発行申請が必要です。",
+};
