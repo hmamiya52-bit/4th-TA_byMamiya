@@ -36,6 +36,16 @@ type MaterialPreviewProps = {
 export function MaterialPreview({ material, compact = false }: MaterialPreviewProps) {
   const style = previewStyles[material.type];
 
+  if (material.thumbnail) {
+    return (
+      <div className="overflow-hidden rounded-lg border border-line bg-white shadow-sm">
+        <div className="aspect-video bg-slate-100">
+          <img src={material.thumbnail} alt={`${material.title}のプレビュー`} className="h-full w-full object-contain" loading="lazy" />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className={`rounded-lg border ${style.frame} p-3`}>
       <div className="rounded-md border border-white/80 bg-white shadow-sm">

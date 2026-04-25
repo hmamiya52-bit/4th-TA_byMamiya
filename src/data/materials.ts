@@ -6,6 +6,7 @@ export type Material = {
   type: MaterialType;
   description: string;
   url: string;
+  thumbnail?: string;
   recommended?: boolean;
 };
 
@@ -16,6 +17,7 @@ export const materials: Material[] = [
     type: "PowerPoint",
     description: "世界一わかりやすい陸技解説を目指して作ったスライド資料です。",
     url: "https://drive.google.com/file/d/1izRxmQrww_Or2b2lI4_jypyk-RG8azzT/view?usp=drive_link",
+    thumbnail: "/materials/radio-engineer-slides.png",
   },
   {
     title: "法規　超直前対策プリント",
@@ -23,6 +25,7 @@ export const materials: Material[] = [
     type: "PDF",
     description: "試験前日～当日から法規の勉強を始める人向けの資料です。",
     url: "https://drive.google.com/file/d/1yCJpU5fCCFQBIDzGo6itNGcZ3PsWQm2B/view?usp=drive_link",
+    thumbnail: "/materials/radio-law-print.png",
   },
   {
     title: "アルゴリズム攻略　講義資料",
