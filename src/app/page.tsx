@@ -63,7 +63,6 @@ export default function Home() {
             <p className="text-sm font-bold text-teal">Materials</p>
             <h2 className="mt-2 text-3xl font-bold text-ink">無料教材一覧</h2>
           </div>
-          <p className="max-w-xl text-sm leading-7 text-muted">対象資格ごとに教材を整理しています。</p>
         </div>
 
         <div className="space-y-12">
@@ -135,7 +134,8 @@ export default function Home() {
             <p className="text-sm font-bold text-teal">Install</p>
             <h2 className="mt-2 text-3xl font-bold text-ink">インストール手順（読まなくてもOK、簡単）</h2>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-muted">
-              学習Webアプリは、スマホやPCのホーム画面に追加して使えます。基本情報技術者試験とネットワークスペシャリストの学習アプリで利用できます。
+              <span className="block">学習Webアプリは、スマホやPCのホーム画面に追加して使えます。</span>
+              <span className="block">基本情報技術者試験とネットワークスペシャリストの学習アプリで利用できます。</span>
             </p>
           </div>
 
