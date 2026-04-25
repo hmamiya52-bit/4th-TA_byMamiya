@@ -11,10 +11,10 @@ const heroPreviewImages = [
 
 export function HeroSection() {
   return (
-    <section id="top" className="border-b border-line bg-white">
+    <section id="top" className="border-b border-line bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-6 sm:py-20 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
         <div>
-          <p className="mb-5 text-sm font-bold text-teal">オリジナル教材</p>
+          <p className="mb-5 text-sm font-bold text-brand">オリジナル教材</p>
           <h1 className="hero-heading max-w-3xl text-5xl leading-[1.12] text-ink sm:text-6xl">
             <span className="block">試験対策を、</span>
             <span className="block">わかりやすく、</span>
@@ -27,7 +27,7 @@ export function HeroSection() {
           <div className="mt-8">
             <a
               href="#materials"
-              className="inline-flex min-h-12 items-center justify-center rounded-md bg-ink px-5 py-3 text-sm font-bold text-white shadow-soft transition hover:bg-accent"
+              className="inline-flex min-h-12 items-center justify-center rounded-md bg-ink px-5 py-3 text-sm font-bold text-surface shadow-soft transition hover:bg-accent"
             >
               教材を見る
             </a>
@@ -42,8 +42,8 @@ export function HeroSection() {
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {heroPreviewImages.map((image) => (
-              <div key={image.src} className="overflow-hidden rounded-lg border border-line bg-white shadow-sm">
-                <div className="aspect-[4/3] bg-slate-100">
+              <div key={image.src} className="overflow-hidden rounded-lg border border-line bg-surface shadow-sm">
+                <div className="aspect-[4/3] bg-preview">
                   <img src={image.src} alt={image.alt} className="h-full w-full object-contain" loading="eager" />
                 </div>
                 <p className="px-3 py-2 text-center text-xs font-bold leading-5 text-muted">{image.title}</p>

@@ -3,8 +3,37 @@
 @tailwind utilities;
 
 :root {
-  color: #172033;
-  background: #f7f9fc;
+  color-scheme: light;
+  --color-ink: 23 32 51;
+  --color-muted: 99 112 131;
+  --color-paper: 247 249 252;
+  --color-surface: 255 255 255;
+  --color-line: 216 225 237;
+  --color-accent: 37 99 235;
+  --color-brand: 15 118 110;
+  --color-badge: 241 245 249;
+  --color-badge-text: 51 65 85;
+  --color-preview: 241 245 249;
+  --shadow-soft: 0 18px 45px rgba(23, 32, 51, 0.08);
+  color: rgb(var(--color-ink));
+  background: rgb(var(--color-paper));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-ink: 238 242 248;
+    --color-muted: 166 179 199;
+    --color-paper: 9 13 24;
+    --color-surface: 15 23 42;
+    --color-line: 51 65 85;
+    --color-accent: 96 165 250;
+    --color-brand: 45 212 191;
+    --color-badge: 30 41 59;
+    --color-badge-text: 203 213 225;
+    --color-preview: 30 41 59;
+    --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.34);
+  }
 }
 
 * {
@@ -19,9 +48,9 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    linear-gradient(180deg, rgba(236, 242, 249, 0.82), rgba(247, 249, 252, 1) 42%),
-    #f7f9fc;
-  color: #172033;
+    linear-gradient(180deg, rgba(var(--color-line), 0.38), rgba(var(--color-paper), 1) 42%),
+    rgb(var(--color-paper));
+  color: rgb(var(--color-ink));
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", sans-serif;
 }
 
@@ -38,6 +67,6 @@ a {
 }
 
 ::selection {
-  background: #bfdbfe;
-  color: #172033;
+  background: rgb(var(--color-accent) / 0.28);
+  color: rgb(var(--color-ink));
 }

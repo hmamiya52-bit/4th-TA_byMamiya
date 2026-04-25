@@ -7,11 +7,11 @@ export const dynamic = "force-static";
 const siteName = "第４術科協会（旧間宮塾）";
 
 const typeStyles: Record<Material["type"], string> = {
-  スライド: "bg-sky-50 text-sky-800 ring-sky-200",
-  PDF: "bg-rose-50 text-rose-800 ring-rose-200",
-  Webアプリ: "bg-teal-50 text-teal-800 ring-teal-200",
-  動画: "bg-amber-50 text-amber-800 ring-amber-200",
-  申請フォーム: "bg-violet-50 text-violet-800 ring-violet-200",
+  スライド: "bg-sky-50 text-sky-800 ring-sky-200 dark:bg-sky-950/70 dark:text-sky-200 dark:ring-sky-800",
+  PDF: "bg-rose-50 text-rose-800 ring-rose-200 dark:bg-rose-950/70 dark:text-rose-200 dark:ring-rose-800",
+  Webアプリ: "bg-teal-50 text-teal-800 ring-teal-200 dark:bg-teal-950/70 dark:text-teal-200 dark:ring-teal-800",
+  動画: "bg-amber-50 text-amber-800 ring-amber-200 dark:bg-amber-950/70 dark:text-amber-200 dark:ring-amber-800",
+  申請フォーム: "bg-violet-50 text-violet-800 ring-violet-200 dark:bg-violet-950/70 dark:text-violet-200 dark:ring-violet-800",
 };
 
 const actionLabels: Record<Material["type"], string> = {
@@ -50,7 +50,7 @@ const installGuides = [
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <header className="border-b border-line/80 bg-white/88 backdrop-blur">
+      <header className="border-b border-line/80 bg-surface/88 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-6 lg:px-8">
           <a href="#top" className="text-base font-bold text-ink sm:text-lg">
             {siteName}
@@ -63,7 +63,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="border-b border-line bg-white">
+      <section className="border-b border-line bg-surface">
         <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-3 text-xs leading-6 text-muted sm:px-6 lg:px-8">
           <p className="font-bold text-ink">最終更新日：2026/04/25</p>
           <p>2026年4月からITエンジニアになりました。せっかくなのでGoogleドライブで教材を管理していたのを大幅リニューアル。</p>
@@ -75,7 +75,7 @@ export default function Home() {
       <section id="materials" className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-bold text-teal">Materials</p>
+            <p className="text-sm font-bold text-brand">Materials</p>
             <h2 className="mt-2 text-3xl font-bold text-ink">無料教材一覧</h2>
           </div>
         </div>
@@ -103,8 +103,8 @@ export default function Home() {
                       key={material.title}
                       className={`flex min-h-72 flex-col rounded-lg border p-5 transition hover:-translate-y-0.5 hover:shadow-soft ${
                         material.recommended
-                          ? "border-accent bg-blue-50/45 shadow-soft ring-1 ring-accent/20"
-                          : "border-line bg-white shadow-sm"
+                          ? "border-accent bg-blue-50/45 shadow-soft ring-1 ring-accent/20 dark:bg-blue-950/30"
+                          : "border-line bg-surface shadow-sm"
                       }`}
                     >
                       <div className="mb-5">
@@ -112,11 +112,11 @@ export default function Home() {
                       </div>
                       <div className="mb-4 flex flex-wrap items-center gap-2">
                         {material.recommended ? (
-                          <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-white">
+                          <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-surface">
                             おすすめ
                           </span>
                         ) : null}
-                        <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-700">
+                        <span className="rounded-full bg-badge px-3 py-1 text-xs font-bold text-badgeText">
                           {material.exam}
                         </span>
                         <span className={`rounded-full px-3 py-1 text-xs font-bold ring-1 ${typeStyles[material.type]}`}>
@@ -129,7 +129,7 @@ export default function Home() {
                         href={material.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-6 inline-flex min-h-11 items-center justify-center rounded-md bg-ink px-4 py-2 text-sm font-bold text-white transition hover:bg-accent"
+                        className="mt-6 inline-flex min-h-11 items-center justify-center rounded-md bg-ink px-4 py-2 text-sm font-bold text-surface transition hover:bg-accent"
                         aria-label={`${material.title}を新しいタブで開く`}
                       >
                         {actionLabels[material.type]}
@@ -143,10 +143,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-line bg-white">
+      <section className="border-t border-line bg-surface">
         <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 lg:px-8">
           <div className="mb-8">
-            <p className="text-sm font-bold text-teal">Install</p>
+            <p className="text-sm font-bold text-brand">Install</p>
             <h2 className="mt-2 text-3xl font-bold text-ink">インストール手順（読まなくてもOK、簡単）</h2>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-muted">
               <span className="block">学習Webアプリは、スマホやPCのホーム画面に追加して使えます。</span>
@@ -161,7 +161,7 @@ export default function Home() {
                 <ol className="mt-4 space-y-3 text-sm leading-7 text-muted">
                   {guide.steps.map((step, index) => (
                     <li key={step} className="flex gap-3">
-                      <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-xs font-bold text-accent ring-1 ring-line">
+                      <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-surface text-xs font-bold text-accent ring-1 ring-line">
                         {index + 1}
                       </span>
                       <span>{step}</span>
@@ -174,7 +174,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="border-t border-line bg-white">
+      <footer className="border-t border-line bg-surface">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <p className="font-medium text-ink">{siteName}</p>
         </div>

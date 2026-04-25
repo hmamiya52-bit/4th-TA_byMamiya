@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "media",
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -9,15 +10,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#172033",
-        muted: "#637083",
-        paper: "#f7f9fc",
-        line: "#d8e1ed",
-        accent: "#2563eb",
-        teal: "#0f766e",
+        ink: "rgb(var(--color-ink) / <alpha-value>)",
+        muted: "rgb(var(--color-muted) / <alpha-value>)",
+        paper: "rgb(var(--color-paper) / <alpha-value>)",
+        surface: "rgb(var(--color-surface) / <alpha-value>)",
+        line: "rgb(var(--color-line) / <alpha-value>)",
+        accent: "rgb(var(--color-accent) / <alpha-value>)",
+        brand: "rgb(var(--color-brand) / <alpha-value>)",
+        badge: "rgb(var(--color-badge) / <alpha-value>)",
+        badgeText: "rgb(var(--color-badge-text) / <alpha-value>)",
+        preview: "rgb(var(--color-preview) / <alpha-value>)",
       },
       boxShadow: {
-        soft: "0 18px 45px rgba(23, 32, 51, 0.08)",
+        soft: "var(--shadow-soft)",
       },
     },
   },
