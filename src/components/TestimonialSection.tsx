@@ -55,9 +55,9 @@ export function TestimonialSection() {
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mb-8 max-w-3xl">
           <p className="text-sm font-bold text-brand">Voices</p>
-          <h2 className="mt-2 text-3xl font-bold text-ink">受講者の声</h2>
+          <h2 className="mt-2 text-3xl font-bold text-ink">受講者の生の声</h2>
           <p className="mt-4 text-sm leading-7 text-muted">
-            講座・動画・グループワークを受けた人から届いた感想です。教材を使う前の雰囲気確認にどうぞ。
+            過去の講義のアンケートで届いた受講者の感想の一部を掲載しています。
           </p>
         </div>
 
