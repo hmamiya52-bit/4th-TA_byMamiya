@@ -73,7 +73,8 @@ export default function Home() {
 
       <section className="border-b border-line bg-surface">
         <div className="mx-auto flex max-w-6xl flex-col gap-0.5 px-5 py-2 text-[10px] leading-5 text-muted sm:px-6 sm:text-[11px] lg:px-8">
-          <p className="font-semibold">最終更新日：2026/04/25</p>
+          <p className="font-semibold">最終更新日：2026/04/26</p>
+          <p className="font-semibold">お知らせ：ネスペ学習アプリの弱点克服モードは現在不具合発生中。5/1にメンテするので、5/2にアプリを再インストールしてください。</p>
           <p>2026年4月からITエンジニアになりました。せっかくなのでGoogleドライブで教材を管理していたのを大幅リニューアル。</p>
         </div>
       </section>
