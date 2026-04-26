@@ -47,6 +47,10 @@ const testimonials = [
     source: "FE講座",
     text: "当初は資格を取ることだけを目標に講座を受講していたが、回数を重ねるうちに、自分の知識が拡大していることが感じられ、ネットワークに関し、より興味を持てるようになった。アルゴリズムについては、知識を身に付けるだけでなく、様々な視点から物事を解決していく能力に活かせると思った。",
   },
+  {
+    source: "FE講座後4/26",
+    text: "●●隊　名誉第2小隊長\nご無沙汰しております。\n在職中はたいへんお世話になりました〇〇です。\n\n本日、基本情報技術者試験のリベンジをしてきたところ、合格点を取ることができました！\n\n間宮さんの間宮塾のおかげで、無事合格することができました。ほんとうにありがとうございました！",
+  },
 ];
 
 export function TestimonialSection() {
@@ -68,7 +72,7 @@ export function TestimonialSection() {
               className="mb-5 break-inside-avoid rounded-lg border border-line bg-surface p-5 shadow-sm"
             >
               <p className="text-4xl font-bold leading-none text-accent/35">“</p>
-              <p className="mt-1 text-sm leading-7 text-ink">{testimonial.text}</p>
+              <p className="mt-1 whitespace-pre-line text-sm leading-7 text-ink">{testimonial.text}</p>
               <p className="mt-4 inline-flex rounded-full bg-badge px-3 py-1 text-xs font-bold text-badgeText">
                 {testimonial.source}
               </p>
