@@ -53,6 +53,33 @@ const testimonials = [
   },
 ];
 
+const cardThemes = [
+  {
+    card: "border-sky-200/80 bg-sky-50/90 dark:border-sky-400/25 dark:bg-sky-400/10",
+    badge: "bg-sky-100 text-sky-800 dark:bg-sky-400/15 dark:text-sky-100",
+  },
+  {
+    card: "border-teal-200/80 bg-teal-50/90 dark:border-teal-400/25 dark:bg-teal-400/10",
+    badge: "bg-teal-100 text-teal-800 dark:bg-teal-400/15 dark:text-teal-100",
+  },
+  {
+    card: "border-amber-200/80 bg-amber-50/90 dark:border-amber-400/25 dark:bg-amber-400/10",
+    badge: "bg-amber-100 text-amber-900 dark:bg-amber-400/15 dark:text-amber-100",
+  },
+  {
+    card: "border-rose-200/80 bg-rose-50/90 dark:border-rose-400/25 dark:bg-rose-400/10",
+    badge: "bg-rose-100 text-rose-800 dark:bg-rose-400/15 dark:text-rose-100",
+  },
+  {
+    card: "border-violet-200/80 bg-violet-50/90 dark:border-violet-400/25 dark:bg-violet-400/10",
+    badge: "bg-violet-100 text-violet-800 dark:bg-violet-400/15 dark:text-violet-100",
+  },
+  {
+    card: "border-emerald-200/80 bg-emerald-50/90 dark:border-emerald-400/25 dark:bg-emerald-400/10",
+    badge: "bg-emerald-100 text-emerald-800 dark:bg-emerald-400/15 dark:text-emerald-100",
+  },
+];
+
 export function TestimonialSection() {
   return (
     <section className="border-t border-line bg-paper">
@@ -66,17 +93,21 @@ export function TestimonialSection() {
         </div>
 
         <div className="columns-1 gap-5 md:columns-2 lg:columns-3">
-          {testimonials.map((testimonial) => (
+          {testimonials.map((testimonial, index) => {
+            const theme = cardThemes[index % cardThemes.length];
+
+            return (
             <article
               key={`${testimonial.source}-${testimonial.text}`}
-              className="mb-5 break-inside-avoid rounded-lg border border-line bg-surface p-5 shadow-sm"
+              className={`mb-5 break-inside-avoid rounded-lg border p-5 shadow-sm ${theme.card}`}
             >
               <p className="mt-1 whitespace-pre-line text-sm leading-7 text-ink">{testimonial.text}</p>
-              <p className="mt-4 inline-flex rounded-full bg-badge px-3 py-1 text-xs font-bold text-badgeText">
+              <p className={`mt-4 inline-flex rounded-full px-3 py-1 text-xs font-bold ${theme.badge}`}>
                 {testimonial.source}
               </p>
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
