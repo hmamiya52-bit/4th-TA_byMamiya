@@ -1,34 +1,10 @@
-const heroPreviewImages = [
-  { src: "/materials/hero-preview-1.png", alt: "陸技 無線工学A教材のプレビュー", title: "陸技　無線工学A教材" },
-  { src: "/materials/hero-preview-2.png", alt: "陸技 無線工学B教材のプレビュー", title: "陸技　無線工学B教材" },
-  { src: "/materials/hero-preview-3.png", alt: "基本情報技術者教材のプレビュー", title: "基本情報技術者教材" },
-  {
-    src: "/materials/hero-preview-4.png",
-    alt: "ネットワークスペシャリスト学習アプリのプレビュー",
-    title: "ネットワークスペシャリスト学習アプリ",
-  },
-];
+import { RandomHeroPreviewGrid } from "@/components/RandomHeroPreviewGrid";
 
 const mobileMaterialLinks = [
   { href: "#radio-engineer", label: "第一級陸上無線技術士の教材を見る" },
   { href: "#fe", label: "基本情報技術者試験の教材を見る" },
   { href: "#network-specialist", label: "ネットワークスペシャリスト学習アプリを見る" },
 ];
-
-function PreviewGrid() {
-  return (
-    <div className="grid gap-3 sm:grid-cols-2">
-      {heroPreviewImages.map((image) => (
-        <div key={image.src} className="overflow-hidden rounded-lg border border-line bg-surface shadow-sm">
-          <div className="aspect-[4/3] bg-preview">
-            <img src={image.src} alt={image.alt} className="h-full w-full object-contain" loading="eager" />
-          </div>
-          <p className="px-3 py-2 text-center text-xs font-bold leading-5 text-muted">{image.title}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 export function HeroSection() {
   return (
@@ -71,7 +47,7 @@ export function HeroSection() {
             教材の雰囲気
           </summary>
           <div className="mt-4">
-            <PreviewGrid />
+            <RandomHeroPreviewGrid />
           </div>
         </details>
 
@@ -81,7 +57,7 @@ export function HeroSection() {
               <p className="text-sm font-bold text-ink">教材の雰囲気</p>
             </div>
           </div>
-          <PreviewGrid />
+          <RandomHeroPreviewGrid />
         </div>
       </div>
     </section>
