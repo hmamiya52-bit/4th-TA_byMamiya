@@ -78,6 +78,34 @@ const cardThemes = [
     card: "border-emerald-200/80 bg-emerald-50/90 dark:border-emerald-400/25 dark:bg-emerald-400/10",
     badge: "bg-emerald-100 text-emerald-800 dark:bg-emerald-400/15 dark:text-emerald-100",
   },
+  {
+    card: "border-cyan-200/80 bg-cyan-50/90 dark:border-cyan-400/25 dark:bg-cyan-400/10",
+    badge: "bg-cyan-100 text-cyan-800 dark:bg-cyan-400/15 dark:text-cyan-100",
+  },
+  {
+    card: "border-lime-200/80 bg-lime-50/90 dark:border-lime-400/25 dark:bg-lime-400/10",
+    badge: "bg-lime-100 text-lime-900 dark:bg-lime-400/15 dark:text-lime-100",
+  },
+  {
+    card: "border-orange-200/80 bg-orange-50/90 dark:border-orange-400/25 dark:bg-orange-400/10",
+    badge: "bg-orange-100 text-orange-900 dark:bg-orange-400/15 dark:text-orange-100",
+  },
+  {
+    card: "border-pink-200/80 bg-pink-50/90 dark:border-pink-400/25 dark:bg-pink-400/10",
+    badge: "bg-pink-100 text-pink-800 dark:bg-pink-400/15 dark:text-pink-100",
+  },
+  {
+    card: "border-indigo-200/80 bg-indigo-50/90 dark:border-indigo-400/25 dark:bg-indigo-400/10",
+    badge: "bg-indigo-100 text-indigo-800 dark:bg-indigo-400/15 dark:text-indigo-100",
+  },
+  {
+    card: "border-fuchsia-200/80 bg-fuchsia-50/90 dark:border-fuchsia-400/25 dark:bg-fuchsia-400/10",
+    badge: "bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-400/15 dark:text-fuchsia-100",
+  },
+  {
+    card: "border-stone-200/80 bg-stone-50/90 dark:border-stone-400/25 dark:bg-stone-400/10",
+    badge: "bg-stone-100 text-stone-800 dark:bg-stone-400/15 dark:text-stone-100",
+  },
 ];
 
 export function TestimonialSection() {
