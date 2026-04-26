@@ -71,7 +71,6 @@ export function TestimonialSection() {
               key={`${testimonial.source}-${testimonial.text}`}
               className="mb-5 break-inside-avoid rounded-lg border border-line bg-surface p-5 shadow-sm"
             >
-              <p className="text-4xl font-bold leading-none text-accent/35">“</p>
               <p className="mt-1 whitespace-pre-line text-sm leading-7 text-ink">{testimonial.text}</p>
               <p className="mt-4 inline-flex rounded-full bg-badge px-3 py-1 text-xs font-bold text-badgeText">
                 {testimonial.source}
