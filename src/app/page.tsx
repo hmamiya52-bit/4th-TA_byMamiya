@@ -65,10 +65,7 @@ export default function Home() {
           <a href="#top" className="text-base font-bold text-ink sm:text-lg">
             {siteName}
           </a>
-          <nav aria-label="主要ナビゲーション" className="flex items-center gap-4 text-sm font-medium text-muted">
-            <a className="transition hover:text-accent" href="#materials">
-              教材
-            </a>
+          <nav aria-label="主要ナビゲーション" className="flex items-center text-sm font-medium text-muted">
             <ThemeToggle />
           </nav>
         </div>
