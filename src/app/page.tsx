@@ -13,6 +13,7 @@ const typeStyles: Record<Material["type"], string> = {
   Webアプリ: "bg-teal-50 text-teal-800 ring-teal-200 dark:bg-teal-950/70 dark:text-teal-200 dark:ring-teal-800",
   動画: "bg-amber-50 text-amber-800 ring-amber-200 dark:bg-amber-950/70 dark:text-amber-200 dark:ring-amber-800",
   申請フォーム: "bg-violet-50 text-violet-800 ring-violet-200 dark:bg-violet-950/70 dark:text-violet-200 dark:ring-violet-800",
+  アンケート: "bg-indigo-50 text-indigo-800 ring-indigo-200 dark:bg-indigo-950/70 dark:text-indigo-200 dark:ring-indigo-800",
 };
 
 const actionLabels: Record<Material["type"], string> = {
@@ -21,6 +22,7 @@ const actionLabels: Record<Material["type"], string> = {
   Webアプリ: "アプリを開く",
   動画: "動画を開く",
   申請フォーム: "申請する",
+  アンケート: "回答する",
 };
 
 const examSectionIds: Record<string, string> = {

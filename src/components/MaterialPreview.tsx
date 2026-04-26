@@ -26,6 +26,11 @@ const previewStyles: Record<Material["type"], { frame: string; bar: string; labe
     bar: "bg-violet-500",
     label: "申請",
   },
+  アンケート: {
+    frame: "border-indigo-200 bg-indigo-50 dark:border-indigo-800 dark:bg-indigo-950/30",
+    bar: "bg-indigo-500",
+    label: "回答",
+  },
 };
 
 type MaterialPreviewProps = {

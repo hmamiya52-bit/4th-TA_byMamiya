@@ -1,4 +1,4 @@
-export type MaterialType = "スライド" | "PDF" | "Webアプリ" | "動画" | "申請フォーム";
+export type MaterialType = "スライド" | "PDF" | "Webアプリ" | "動画" | "申請フォーム" | "アンケート";
 
 export type Material = {
   title: string;
@@ -78,6 +78,13 @@ export const materials: Material[] = [
     url: "https://mamiya-nwapp.vercel.app/",
     thumbnail: "/materials/nw-learning-app.png",
     recommended: true,
+  },
+  {
+    title: "アンケート",
+    exam: "ネットワークスペシャリスト",
+    type: "アンケート",
+    description: "ネットワークスペシャリスト学習アプリに関するアンケートです。利用後の感想や改善点を入力してください。",
+    url: "https://docs.google.com/forms/d/e/1FAIpQLSdzK8LtbhVQtL6LuETnUuF7VjU2dBW2pu0lwdEzKy0Uc0alXw/viewform?usp=dialog",
   },
   {
     title: "午前試験対策　動画",
