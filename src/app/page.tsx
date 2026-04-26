@@ -34,6 +34,13 @@ const examSectionIds: Record<string, string> = {
   応用情報技術者試験: "ap",
 };
 
+const examDisplayNames: Record<string, string> = {
+  第一級陸上無線技術士: "第一級陸上無線技術士（陸技）",
+  基本情報技術者試験: "基本情報技術者試験（ＦＥ）",
+  ネットワークスペシャリスト: "ネットワークスペシャリスト（ネスペ）",
+  応用情報技術者試験: "応用情報技術者試験 （ＡＰ）",
+};
+
 const installGuides = [
   {
     title: "iPhoneの方（Safari）",
@@ -96,14 +103,15 @@ export default function Home() {
             const examMaterials = materials.filter((material) => material.exam === exam);
             const note = examNotes[exam];
             const sectionId = examSectionIds[exam];
+            const displayName = examDisplayNames[exam] ?? exam;
 
             return (
               <section key={exam} id={sectionId} aria-labelledby={`${exam}-heading`}>
                 <div className="mb-5">
                   <div className="flex items-center gap-3">
                     <span className="h-px flex-1 bg-line" />
-                    <h3 id={`${exam}-heading`} className="text-lg font-bold text-ink sm:text-xl">
-                      {exam}
+                    <h3 id={`${exam}-heading`} className="text-xl font-extrabold text-ink sm:text-2xl">
+                      {displayName}
                     </h3>
                     <span className="h-px flex-1 bg-line" />
                   </div>
