@@ -1,5 +1,6 @@
 import { examNotes, exams, materials, type Material } from "@/data/materials";
 import { HeroSection } from "@/components/HeroSection";
+import { HistorySection } from "@/components/HistorySection";
 import { MaterialPreview } from "@/components/MaterialPreview";
 import { TestimonialSection } from "@/components/TestimonialSection";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -186,6 +187,8 @@ export default function Home() {
       </section>
 
       <TestimonialSection />
+
+      <HistorySection />
 
       <footer className="border-t border-line bg-surface">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-6 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
