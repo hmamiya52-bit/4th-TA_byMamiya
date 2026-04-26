@@ -87,7 +87,7 @@ export default function Home() {
         <div className="mb-10 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm font-bold text-brand">Materials</p>
-            <h2 className="mt-2 text-3xl font-bold text-ink">無料教材一覧</h2>
+            <h2 className="mt-2 text-3xl font-bold text-ink">教材一覧</h2>
           </div>
         </div>
 
