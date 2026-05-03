@@ -1,18 +1,20 @@
 const ganttMonths = [
-  "2026/05",
-  "2026/06",
-  "2026/07",
-  "2026/08",
-  "2026/09",
-  "2026/10",
-  "2026/11",
-  "2026/12",
-  "2027/01",
-  "2027/02",
-  "2027/03",
-  "2027/04",
-  "2027/05",
+  { label: "2026/05", compactLabel: "26/05" },
+  { label: "2026/06", compactLabel: "06" },
+  { label: "2026/07", compactLabel: "07" },
+  { label: "2026/08", compactLabel: "08" },
+  { label: "2026/09", compactLabel: "09" },
+  { label: "2026/10", compactLabel: "10" },
+  { label: "2026/11", compactLabel: "11" },
+  { label: "2026/12", compactLabel: "12" },
+  { label: "2027/01", compactLabel: "27/01" },
+  { label: "2027/02", compactLabel: "02" },
+  { label: "2027/03", compactLabel: "03" },
+  { label: "2027/04", compactLabel: "04" },
+  { label: "2027/05", compactLabel: "05" },
 ];
+
+const ganttHalves = ganttMonths.flatMap((month) => [`${month.label}-first`, `${month.label}-second`]);
 
 export function FuturePlanSection() {
   return (
@@ -34,24 +36,36 @@ export function FuturePlanSection() {
             </span>
           </summary>
 
-          <div className="border-t border-line p-5">
-            <div className="overflow-x-auto">
-              <div className="min-w-[1120px] rounded-lg border border-line bg-paper">
-                <div className="grid grid-cols-[12rem_repeat(13,minmax(4rem,1fr))] border-b border-line text-[10px] font-bold text-muted sm:text-[11px]">
-                  <div className="border-r border-line px-4 py-3 text-ink">予定</div>
-                  {ganttMonths.map((month) => (
-                    <div key={month} className="border-r border-line px-3 py-3 text-center last:border-r-0">
-                      {month}
-                    </div>
-                  ))}
-                </div>
+          <div className="border-t border-line p-3 sm:p-5">
+            <div className="rounded-lg border border-line bg-paper">
+              <div className="grid grid-cols-[4.75rem_repeat(26,minmax(0,1fr))] border-b border-line text-[8px] font-bold leading-4 text-muted sm:grid-cols-[6rem_repeat(26,minmax(0,1fr))] sm:text-[9px]">
+                <div className="row-span-2 flex items-center border-r border-line px-2 py-2 text-ink sm:px-3">予定</div>
+                {ganttMonths.map((month) => (
+                  <div key={month.label} className="col-span-2 border-r border-line px-0.5 py-1 text-center last:border-r-0">
+                    <span className="hidden sm:inline">{month.label}</span>
+                    <span className="sm:hidden">{month.compactLabel}</span>
+                  </div>
+                ))}
+                {ganttMonths.flatMap((month, index) => [
+                  <div key={`${month.label}-first`} className="border-r border-t border-line px-0.5 py-1 text-center">
+                    前
+                  </div>,
+                  <div
+                    key={`${month.label}-second`}
+                    className={`border-r border-t border-line px-0.5 py-1 text-center ${
+                      index === ganttMonths.length - 1 ? "border-r-0" : ""
+                    }`}
+                  >
+                    後
+                  </div>,
+                ])}
+              </div>
 
-                <div className="grid grid-cols-[12rem_repeat(13,minmax(4rem,1fr))] text-[10px] leading-5 text-muted sm:text-[11px]">
-                  <div className="border-r border-line px-4 py-4 font-semibold text-ink">予定枠</div>
-                  {ganttMonths.map((month) => (
-                    <div key={`empty-${month}`} className="min-h-14 border-r border-line px-3 py-4 last:border-r-0" />
-                  ))}
-                </div>
+              <div className="grid grid-cols-[4.75rem_repeat(26,minmax(0,1fr))] text-[8px] leading-4 text-muted sm:grid-cols-[6rem_repeat(26,minmax(0,1fr))] sm:text-[9px]">
+                <div className="border-r border-line px-2 py-3 font-semibold text-ink sm:px-3">予定枠</div>
+                {ganttHalves.map((half) => (
+                  <div key={`empty-${half}`} className="min-h-10 border-r border-line px-0.5 py-3 last:border-r-0" />
+                ))}
               </div>
             </div>
           </div>
