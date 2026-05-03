@@ -48,8 +48,8 @@ const ganttItems = [
   { title: "PDSアプリ基本設計", start: "2026/08-second", end: "2026/09-first" },
   { title: "PDSアプリ詳細設計", start: "2026/09-first", end: "2026/09-second" },
   { title: "PDSアプリ開発", start: "2026/09-second", end: "2027/03-first" },
-  { title: "PDS（マネジメント）対策アプリテスト", start: "2027/02-first", end: "2027/04-second" },
-  { title: "PDS（システム）用資料作成", start: "2027/04-first", end: "2027/05-second" },
+  { title: "PDS（マネジメント）対策アプリテスト", start: "2027/02-first", end: "2027/05-second" },
+  { title: "PDS（システム）用資料作成", start: "2027/04-first", end: "2027/10-second" },
 ] satisfies GanttItem[];
 
 function getSectionHalves(months: typeof allGanttMonths) {
@@ -82,12 +82,12 @@ function GanttChart({ months, title }: { months: typeof allGanttMonths; title: s
   return (
     <div className="overflow-x-auto">
       <div className="min-w-[42rem] rounded-lg border border-line bg-paper">
-        <div className="border-b border-line bg-surface px-3 py-2 text-xs font-bold text-ink">{title}</div>
+        <div className="border-b border-line bg-surface px-3 py-1.5 text-xs font-bold text-ink">{title}</div>
         <div
           className="grid border-b border-line text-[8px] font-bold leading-4 text-muted sm:text-[9px]"
           style={{ gridTemplateColumns }}
         >
-          <div className="row-span-2 flex items-center border-r border-line px-3 py-2 text-ink">予定</div>
+          <div className="row-span-2 flex items-center border-r border-line px-3 py-1.5 text-ink">予定</div>
           {months.map((month) => (
             <div key={month.label} className="col-span-2 border-r border-line px-0.5 py-1 text-center last:border-r-0">
               <span className="hidden sm:inline">{month.label}</span>
@@ -115,15 +115,15 @@ function GanttChart({ months, title }: { months: typeof allGanttMonths; title: s
             className="grid border-b border-line text-[8px] leading-4 text-muted last:border-b-0 sm:text-[9px]"
             style={{ gridTemplateColumns }}
           >
-            <div className="flex min-h-10 items-center break-words border-r border-line px-3 py-2 font-semibold text-ink">
+            <div className="flex min-h-8 items-center break-words border-r border-line px-3 py-1.5 font-semibold text-ink">
               {item.title}
             </div>
             {sectionHalves.map((half) => (
-              <div key={`${item.title}-${half}`} className="min-h-10 border-r border-line last:border-r-0" />
+              <div key={`${item.title}-${half}`} className="min-h-8 border-r border-line last:border-r-0" />
             ))}
             <div
               aria-label={item.title}
-              className="z-10 mx-0.5 my-2 rounded bg-brand/85 shadow-sm"
+              className="z-10 mx-0.5 my-1.5 rounded bg-brand/85 shadow-sm"
               style={{ gridColumn: item.gridColumn, gridRow: 1 }}
             />
           </div>
@@ -153,7 +153,7 @@ export function FuturePlanSection() {
             </span>
           </summary>
 
-          <div className="space-y-5 border-t border-line p-3 sm:p-5">
+          <div className="space-y-3 border-t border-line p-3 sm:p-4">
             {ganttSections.map((section) => (
               <GanttChart key={section.title} months={section.months} title={section.title} />
             ))}
