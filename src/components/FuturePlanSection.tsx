@@ -28,29 +28,40 @@ const ganttSections = [
 
 const allGanttHalves = allGanttMonths.flatMap((month) => [`${month.label}-first`, `${month.label}-second`]);
 
+type GanttStatus = "完了" | "着手中" | "予定" | "遅延";
+
 type GanttItem = {
   title: string;
   start: string;
   end: string;
+  status: GanttStatus;
 };
 
-const ganttItems = [
-  { title: "ネスペアプリ改修", start: "2026/04-second", end: "2026/04-second" },
-  { title: "中期計画", start: "2026/04-first", end: "2026/05-first" },
-  { title: "家計簿管理アプリ改修", start: "2026/05-second", end: "2026/05-second" },
+const ganttStatusStyles = {
+  完了: "bg-blue-500/90",
+  着手中: "bg-brand/85",
+  予定: "bg-yellow-400/90",
+  遅延: "bg-red-500/90",
+} satisfies Record<GanttStatus, string>;
+
+const ganttItems: GanttItem[] = [
+  { title: "中期計画", start: "2026/04-first", end: "2026/05-first", status: "着手中" },
+  { title: "ネスペアプリ改修", start: "2026/04-second", end: "2026/04-second", status: "完了" },
+  { title: "家計簿管理アプリ改修", start: "2026/05-second", end: "2026/05-second", status: "予定" },
   {
     title: "プロフェッショナルデジタルスキル試験（PDS）対策アプリ:要件定義",
     start: "2026/06-first",
     end: "2026/06-second",
+    status: "予定",
   },
-  { title: "PDSアプリ用ノート作成（PM）", start: "2026/07-first", end: "2026/07-second" },
-  { title: "PDSアプリ用ノート作成（ST）", start: "2026/08-first", end: "2026/08-first" },
-  { title: "PDSアプリ基本設計", start: "2026/08-second", end: "2026/09-first" },
-  { title: "PDSアプリ詳細設計", start: "2026/09-first", end: "2026/09-second" },
-  { title: "PDSアプリ開発", start: "2026/09-second", end: "2027/03-first" },
-  { title: "PDS（マネジメント）対策アプリテスト", start: "2027/02-first", end: "2027/05-second" },
-  { title: "PDS（システム）用資料作成", start: "2027/04-first", end: "2027/10-second" },
-] satisfies GanttItem[];
+  { title: "PDSアプリ用ノート作成（PM）", start: "2026/07-first", end: "2026/07-second", status: "予定" },
+  { title: "PDSアプリ用ノート作成（ST）", start: "2026/08-first", end: "2026/08-first", status: "予定" },
+  { title: "PDSアプリ基本設計", start: "2026/08-second", end: "2026/09-first", status: "予定" },
+  { title: "PDSアプリ詳細設計", start: "2026/09-first", end: "2026/09-second", status: "予定" },
+  { title: "PDSアプリ開発", start: "2026/09-second", end: "2027/03-first", status: "予定" },
+  { title: "PDS（マネジメント）対策アプリテスト", start: "2027/02-first", end: "2027/05-second", status: "予定" },
+  { title: "PDS（システム）用資料作成", start: "2027/04-first", end: "2027/10-second", status: "予定" },
+];
 
 function getSectionHalves(months: typeof allGanttMonths) {
   return months.flatMap((month) => [`${month.label}-first`, `${month.label}-second`]);
@@ -122,8 +133,8 @@ function GanttChart({ months, title }: { months: typeof allGanttMonths; title: s
               <div key={`${item.title}-${half}`} className="min-h-8 border-r border-line last:border-r-0" />
             ))}
             <div
-              aria-label={item.title}
-              className="z-10 mx-0.5 my-1.5 rounded bg-brand/85 shadow-sm"
+              aria-label={`${item.title}：${item.status}`}
+              className={`z-10 mx-0.5 my-1.5 rounded shadow-sm ${ganttStatusStyles[item.status]}`}
               style={{ gridColumn: item.gridColumn, gridRow: 1 }}
             />
           </div>
