@@ -48,7 +48,7 @@ export function FuturePlanSection() {
                 ))}
                 {ganttMonths.flatMap((month, index) => [
                   <div key={`${month.label}-first`} className="border-r border-t border-line px-0.5 py-1 text-center">
-                    前
+                    上
                   </div>,
                   <div
                     key={`${month.label}-second`}
@@ -56,7 +56,7 @@ export function FuturePlanSection() {
                       index === ganttMonths.length - 1 ? "border-r-0" : ""
                     }`}
                   >
-                    後
+                    下
                   </div>,
                 ])}
               </div>
