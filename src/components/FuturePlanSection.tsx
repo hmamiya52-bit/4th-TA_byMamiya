@@ -22,7 +22,7 @@ const allGanttMonths = [
 
 const ganttSections = [
   { title: "2026/04-09", months: allGanttMonths.slice(0, 6) },
-  { title: "2026/09-2027/03", months: allGanttMonths.slice(5, 12) },
+  { title: "2026/10-2027/03", months: allGanttMonths.slice(6, 12) },
   { title: "2027/04-10", months: allGanttMonths.slice(12) },
 ];
 
