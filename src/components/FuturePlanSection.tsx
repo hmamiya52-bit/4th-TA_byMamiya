@@ -1,5 +1,6 @@
-const ganttMonths = [
-  { label: "2026/05", compactLabel: "26/05" },
+const allGanttMonths = [
+  { label: "2026/04", compactLabel: "26/04" },
+  { label: "2026/05", compactLabel: "05" },
   { label: "2026/06", compactLabel: "06" },
   { label: "2026/07", compactLabel: "07" },
   { label: "2026/08", compactLabel: "08" },
@@ -12,14 +13,30 @@ const ganttMonths = [
   { label: "2027/03", compactLabel: "03" },
   { label: "2027/04", compactLabel: "04" },
   { label: "2027/05", compactLabel: "05" },
+  { label: "2027/06", compactLabel: "06" },
+  { label: "2027/07", compactLabel: "07" },
+  { label: "2027/08", compactLabel: "08" },
+  { label: "2027/09", compactLabel: "09" },
+  { label: "2027/10", compactLabel: "10" },
 ];
 
-const ganttHalves = ganttMonths.flatMap((month) => [`${month.label}-first`, `${month.label}-second`]);
+const ganttSections = [
+  { title: "2026/04-09", months: allGanttMonths.slice(0, 6) },
+  { title: "2026/09-2027/03", months: allGanttMonths.slice(5, 12) },
+  { title: "2027/04-10", months: allGanttMonths.slice(12) },
+];
 
-type GanttHalfKey = (typeof ganttHalves)[number];
+const allGanttHalves = allGanttMonths.flatMap((month) => [`${month.label}-first`, `${month.label}-second`]);
+
+type GanttItem = {
+  title: string;
+  start: string;
+  end: string;
+};
 
 const ganttItems = [
-  { title: "単年度計画", start: "2026/05-first", end: "2026/05-first" },
+  { title: "ネスペアプリ改修", start: "2026/04-second", end: "2026/04-second" },
+  { title: "中期計画", start: "2026/04-first", end: "2026/05-first" },
   { title: "家計簿管理アプリ改修", start: "2026/05-second", end: "2026/05-second" },
   {
     title: "プロフェッショナルデジタルスキル試験（PDS）対策アプリ:要件定義",
@@ -33,13 +50,87 @@ const ganttItems = [
   { title: "PDSアプリ開発", start: "2026/09-second", end: "2027/03-first" },
   { title: "PDS（マネジメント）対策アプリテスト", start: "2027/02-first", end: "2027/04-second" },
   { title: "PDS（システム）用資料作成", start: "2027/04-first", end: "2027/05-second" },
-] satisfies { title: string; start: GanttHalfKey; end: GanttHalfKey }[];
+] satisfies GanttItem[];
 
-function getGridColumn(start: GanttHalfKey, end: GanttHalfKey) {
-  const startIndex = ganttHalves.indexOf(start);
-  const endIndex = ganttHalves.indexOf(end);
+function getSectionHalves(months: typeof allGanttMonths) {
+  return months.flatMap((month) => [`${month.label}-first`, `${month.label}-second`]);
+}
 
-  return `${startIndex + 2} / ${endIndex + 3}`;
+function getVisibleGridColumn(item: GanttItem, sectionHalves: string[]) {
+  const sectionStartIndex = allGanttHalves.indexOf(sectionHalves[0]);
+  const sectionEndIndex = allGanttHalves.indexOf(sectionHalves[sectionHalves.length - 1]);
+  const itemStartIndex = allGanttHalves.indexOf(item.start);
+  const itemEndIndex = allGanttHalves.indexOf(item.end);
+
+  if (itemEndIndex < sectionStartIndex || sectionEndIndex < itemStartIndex) {
+    return null;
+  }
+
+  const visibleStartIndex = Math.max(itemStartIndex, sectionStartIndex) - sectionStartIndex;
+  const visibleEndIndex = Math.min(itemEndIndex, sectionEndIndex) - sectionStartIndex;
+
+  return `${visibleStartIndex + 2} / ${visibleEndIndex + 3}`;
+}
+
+function GanttChart({ months, title }: { months: typeof allGanttMonths; title: string }) {
+  const sectionHalves = getSectionHalves(months);
+  const gridTemplateColumns = `12rem repeat(${sectionHalves.length}, minmax(0, 1fr))`;
+  const visibleItems = ganttItems
+    .map((item) => ({ ...item, gridColumn: getVisibleGridColumn(item, sectionHalves) }))
+    .filter((item): item is GanttItem & { gridColumn: string } => item.gridColumn !== null);
+
+  return (
+    <div className="overflow-x-auto">
+      <div className="min-w-[42rem] rounded-lg border border-line bg-paper">
+        <div className="border-b border-line bg-surface px-3 py-2 text-xs font-bold text-ink">{title}</div>
+        <div
+          className="grid border-b border-line text-[8px] font-bold leading-4 text-muted sm:text-[9px]"
+          style={{ gridTemplateColumns }}
+        >
+          <div className="row-span-2 flex items-center border-r border-line px-3 py-2 text-ink">予定</div>
+          {months.map((month) => (
+            <div key={month.label} className="col-span-2 border-r border-line px-0.5 py-1 text-center last:border-r-0">
+              <span className="hidden sm:inline">{month.label}</span>
+              <span className="sm:hidden">{month.compactLabel}</span>
+            </div>
+          ))}
+          {months.flatMap((month, index) => [
+            <div key={`${month.label}-first`} className="border-r border-t border-line px-0.5 py-1 text-center">
+              上
+            </div>,
+            <div
+              key={`${month.label}-second`}
+              className={`border-r border-t border-line px-0.5 py-1 text-center ${
+                index === months.length - 1 ? "border-r-0" : ""
+              }`}
+            >
+              下
+            </div>,
+          ])}
+        </div>
+
+        {visibleItems.map((item) => (
+          <div
+            key={`${title}-${item.title}`}
+            className="grid border-b border-line text-[8px] leading-4 text-muted last:border-b-0 sm:text-[9px]"
+            style={{ gridTemplateColumns }}
+          >
+            <div className="flex min-h-10 items-center break-words border-r border-line px-3 py-2 font-semibold text-ink">
+              {item.title}
+            </div>
+            {sectionHalves.map((half) => (
+              <div key={`${item.title}-${half}`} className="min-h-10 border-r border-line last:border-r-0" />
+            ))}
+            <div
+              aria-label={item.title}
+              className="z-10 mx-0.5 my-2 rounded bg-brand/85 shadow-sm"
+              style={{ gridColumn: item.gridColumn, gridRow: 1 }}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export function FuturePlanSection() {
@@ -51,7 +142,7 @@ export function FuturePlanSection() {
             <p className="text-sm font-bold text-brand">Roadmap</p>
             <h2 className="mt-2 text-3xl font-bold text-ink">今後の予定</h2>
           </div>
-          <p className="text-[10px] font-semibold leading-5 text-muted sm:text-[11px]">期間：2026/05～2027/05</p>
+          <p className="text-[10px] font-semibold leading-5 text-muted sm:text-[11px]">期間：2026/04～2027/10</p>
         </div>
 
         <details className="group rounded-lg border border-line bg-surface shadow-sm">
@@ -62,52 +153,10 @@ export function FuturePlanSection() {
             </span>
           </summary>
 
-          <div className="border-t border-line p-3 sm:p-5">
-            <div className="overflow-x-auto">
-              <div className="min-w-[56rem] rounded-lg border border-line bg-paper">
-                <div className="grid grid-cols-[12rem_repeat(26,minmax(0,1fr))] border-b border-line text-[8px] font-bold leading-4 text-muted sm:text-[9px]">
-                  <div className="row-span-2 flex items-center border-r border-line px-3 py-2 text-ink">予定</div>
-                  {ganttMonths.map((month) => (
-                    <div key={month.label} className="col-span-2 border-r border-line px-0.5 py-1 text-center last:border-r-0">
-                      <span className="hidden sm:inline">{month.label}</span>
-                      <span className="sm:hidden">{month.compactLabel}</span>
-                    </div>
-                  ))}
-                  {ganttMonths.flatMap((month, index) => [
-                    <div key={`${month.label}-first`} className="border-r border-t border-line px-0.5 py-1 text-center">
-                      上
-                    </div>,
-                    <div
-                      key={`${month.label}-second`}
-                      className={`border-r border-t border-line px-0.5 py-1 text-center ${
-                        index === ganttMonths.length - 1 ? "border-r-0" : ""
-                      }`}
-                    >
-                      下
-                    </div>,
-                  ])}
-                </div>
-
-                {ganttItems.map((item) => (
-                  <div
-                    key={item.title}
-                    className="grid grid-cols-[12rem_repeat(26,minmax(0,1fr))] border-b border-line text-[8px] leading-4 text-muted last:border-b-0 sm:text-[9px]"
-                  >
-                    <div className="flex min-h-10 items-center break-words border-r border-line px-3 py-2 font-semibold text-ink">
-                      {item.title}
-                    </div>
-                    {ganttHalves.map((half) => (
-                      <div key={`${item.title}-${half}`} className="min-h-10 border-r border-line last:border-r-0" />
-                    ))}
-                    <div
-                      aria-label={item.title}
-                      className="z-10 mx-0.5 my-2 rounded bg-brand/85 shadow-sm"
-                      style={{ gridColumn: getGridColumn(item.start, item.end), gridRow: 1 }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="space-y-5 border-t border-line p-3 sm:p-5">
+            {ganttSections.map((section) => (
+              <GanttChart key={section.title} months={section.months} title={section.title} />
+            ))}
           </div>
         </details>
       </div>
