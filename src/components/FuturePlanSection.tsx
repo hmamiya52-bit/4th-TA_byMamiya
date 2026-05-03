@@ -86,6 +86,7 @@ function getVisibleGridColumn(item: GanttItem, sectionHalves: string[]) {
 function GanttChart({ months, title }: { months: typeof allGanttMonths; title: string }) {
   const sectionHalves = getSectionHalves(months);
   const gridTemplateColumns = `12rem repeat(${sectionHalves.length}, minmax(0, 1fr))`;
+  const bodyGridTemplateColumns = `repeat(${sectionHalves.length}, minmax(0, 1fr))`;
   const visibleItems = ganttItems
     .map((item) => ({ ...item, gridColumn: getVisibleGridColumn(item, sectionHalves) }))
     .filter((item): item is GanttItem & { gridColumn: string } => item.gridColumn !== null);
@@ -129,9 +130,14 @@ function GanttChart({ months, title }: { months: typeof allGanttMonths; title: s
             <div className="flex min-h-8 items-center break-words border-r border-line px-3 py-1.5 font-semibold text-ink">
               {item.title}
             </div>
-            {sectionHalves.map((half) => (
-              <div key={`${item.title}-${half}`} className="min-h-8 border-r border-line last:border-r-0" />
-            ))}
+            <div
+              className="grid"
+              style={{ gridColumn: "2 / -1", gridRow: 1, gridTemplateColumns: bodyGridTemplateColumns }}
+            >
+              {sectionHalves.map((half) => (
+                <div key={`${item.title}-${half}`} className="min-h-8 border-r border-line last:border-r-0" />
+              ))}
+            </div>
             <div
               aria-label={`${item.title}：${item.status}`}
               className={`z-10 mx-0.5 my-1.5 rounded shadow-sm ${ganttStatusStyles[item.status]}`}
