@@ -96,6 +96,14 @@ export const materials: Material[] = [
     thumbnail: "/materials/ap-morning-video.png",
   },
   {
+    title: "午後問題GW資料",
+    exam: "応用情報技術者試験",
+    type: "スライド",
+    description:
+      "議論によるアウトプット力の強化を目的として実施したグループワークの講義資料です。一人で読んでも意味はないですが、参考程度に…",
+    url: "https://drive.google.com/file/d/14jJhq2SC0uldlJP1hCnrPPp52JjYKJ0m/view?usp=sharing",
+  },
+  {
     title: "R6春セキュリティ午後解説（前半）",
     exam: "応用情報技術者試験",
     type: "動画",
