@@ -92,7 +92,7 @@ export const materials: Material[] = [
     type: "動画",
     description:
       "応用情報技術者ってなに？どうやって攻略したらいい？っていう入口の動画。作った時から手直ししたけど、これ見るより周りの持ってる人に話を聞く方が早い気しかしない。",
-    url: "準備中（GW中に追加予定）",
+    url: "https://drive.google.com/file/d/19BHDb9Uuo-EVYF7QVyCwkBizuBo84ZZD/view?usp=sharing",
     thumbnail: "/materials/AP-s.png",
   },
   {
