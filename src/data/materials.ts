@@ -111,6 +111,7 @@ export const materials: Material[] = [
     description:
       "議論によるアウトプット力の強化を目的として実施したグループワークの講義資料です。一人で読んでも意味はないですが、参考程度に…",
     url: "https://drive.google.com/file/d/14jJhq2SC0uldlJP1hCnrPPp52JjYKJ0m/view?usp=sharing",
+    thumbnail: "/materials/AP-GW.png",
   },
   {
     title: "R6春セキュリティ午後解説（前半）",
