@@ -93,6 +93,7 @@ export const materials: Material[] = [
     description:
       "応用情報技術者ってなに？どうやって攻略したらいい？っていう入口の動画。作った時から手直ししたけど、これ見るより周りの持ってる人に話を聞く方が早い気しかしない。",
     url: "準備中（GW中に追加予定）",
+    thumbnail: "/materials/AP-s.png",
   },
   {
     title: "午前試験対策　動画",
