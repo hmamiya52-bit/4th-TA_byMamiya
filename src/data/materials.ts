@@ -87,6 +87,14 @@ export const materials: Material[] = [
     url: "https://docs.google.com/forms/d/e/1FAIpQLSdzK8LtbhVQtL6LuETnUuF7VjU2dBW2pu0lwdEzKy0Uc0alXw/viewform?usp=dialog",
   },
   {
+    title: "導入教育動画RE2",
+    exam: "応用情報技術者試験",
+    type: "動画",
+    description:
+      "応用情報技術者ってなに？どうやって攻略したらいい？っていう入口の動画。作った時から手直ししたけど、これ見るより周りの持ってる人に話を聞く方が早い気しかしない。",
+    url: "準備中（GW中に追加予定）",
+  },
+  {
     title: "午前試験対策　動画",
     exam: "応用情報技術者試験",
     type: "動画",
