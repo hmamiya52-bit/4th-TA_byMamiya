@@ -46,8 +46,8 @@ const ganttStatusStyles = {
 
 const ganttItems: GanttItem[] = [
   { title: "中期計画策定", start: "2026/04-first", end: "2026/05-first", status: "着手中" },
-  { title: "プロジェクトマネージャアプリ要件定義・設計", start: "2026/05-first", end: "2026/05-second", status: "着手中" },
   { title: "ネスペアプリ改修", start: "2026/04-second", end: "2026/04-second", status: "完了" },
+  { title: "プロジェクトマネージャアプリ要件定義・設計", start: "2026/05-first", end: "2026/05-second", status: "着手中" },
   { title: "家計簿管理アプリ改修", start: "2026/05-second", end: "2026/05-second", status: "予定" },
   {
     title: "プロフェッショナルデジタルスキル試験（PDS）対策アプリ:要件定義",
