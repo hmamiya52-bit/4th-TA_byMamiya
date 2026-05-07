@@ -131,11 +131,12 @@ export const materials: Material[] = [
   },
 ];
 
-export const exams = Array.from(new Set(materials.map((material) => material.exam)));
+export const exams = [...Array.from(new Set(materials.map((material) => material.exam))), "プロジェクトマネージャ"];
 
 export const examNotes: Record<string, string> = {
   第一級陸上無線技術士: "今も昔も変わらず無線屋最高峰資格。IT業界向けではない。",
   基本情報技術者試験: "科目B対策が中心です。科目Aについては、過去問道場（ネットで検索）を使用してください。",
   応用情報技術者試験: "午後試験対策講座は、ほぼ対面でしか実施していません。講義資料は非公開です。",
+  プロジェクトマネージャ: "準備中",
   ネットワークスペシャリスト: "アプリを使用する前に、アカウントの発行申請を行ってください。",
 };

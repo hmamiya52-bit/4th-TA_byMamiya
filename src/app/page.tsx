@@ -33,6 +33,7 @@ const examSectionIds: Record<string, string> = {
   基本情報技術者試験: "fe",
   ネットワークスペシャリスト: "network-specialist",
   応用情報技術者試験: "ap",
+  プロジェクトマネージャ: "project-manager",
 };
 
 const examDisplayNames: Record<string, string> = {
@@ -40,6 +41,7 @@ const examDisplayNames: Record<string, string> = {
   基本情報技術者試験: "基本情報技術者試験（ＦＥ）",
   ネットワークスペシャリスト: "ネットワークスペシャリスト（ネスペ）",
   応用情報技術者試験: "応用情報技術者試験 （ＡＰ）",
+  プロジェクトマネージャ: "プロジェクトマネージャ（PM）",
 };
 
 const installGuides = [

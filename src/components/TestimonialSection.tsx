@@ -111,26 +111,26 @@ const cardThemes = [
 export function TestimonialSection() {
   return (
     <section className="border-t border-line bg-paper">
-      <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="mb-8 max-w-3xl">
-          <p className="text-sm font-bold text-brand">Voices</p>
-          <h2 className="mt-2 text-3xl font-bold text-ink">受講者の生の声</h2>
-          <p className="mt-4 text-sm leading-7 text-muted">
+      <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8">
+        <div className="mb-6 max-w-3xl">
+          <p className="text-xs font-bold text-brand">Voices</p>
+          <h2 className="mt-2 text-2xl font-bold text-ink">受講者の生の声</h2>
+          <p className="mt-3 text-xs leading-6 text-muted">
             過去の講義のアンケートで届いた受講者の感想の一部を掲載しています。
           </p>
         </div>
 
-        <div className="columns-1 gap-5 md:columns-2 lg:columns-3">
+        <div className="columns-1 gap-4 md:columns-2 lg:columns-3">
           {testimonials.map((testimonial, index) => {
             const theme = cardThemes[index % cardThemes.length];
 
             return (
             <article
               key={`${testimonial.source}-${testimonial.text}`}
-              className={`mb-5 break-inside-avoid rounded-lg border p-5 shadow-sm ${theme.card}`}
+              className={`mb-4 break-inside-avoid rounded-lg border p-4 shadow-sm ${theme.card}`}
             >
-              <p className="mt-1 whitespace-pre-line text-sm leading-7 text-ink">{testimonial.text}</p>
-              <p className={`mt-4 inline-flex rounded-full px-3 py-1 text-xs font-bold ${theme.badge}`}>
+              <p className="mt-1 whitespace-pre-line text-xs leading-6 text-ink">{testimonial.text}</p>
+              <p className={`mt-3 inline-flex rounded-full px-2.5 py-0.5 text-[11px] font-bold ${theme.badge}`}>
                 {testimonial.source}
               </p>
             </article>
