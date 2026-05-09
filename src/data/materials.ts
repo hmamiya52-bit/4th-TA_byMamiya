@@ -42,6 +42,7 @@ export const materials: Material[] = [
     type: "動画",
     description: "７回分の冬期講習動画を一本に再編集した動画です。",
     url: "https://drive.google.com/file/d/1Nw-iqMFAdNetf-JgW33fn5CqUwOytmEL/view?usp=drive_link",
+    thumbnail: "/materials/rikugi4.png",
   },
   {
     title: "アルゴリズム攻略　講義資料",
