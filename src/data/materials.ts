@@ -36,6 +36,13 @@ export const materials: Material[] = [
     thumbnail: "/materials/radio-documents-pack.png",
   },
   {
+    title: "一陸技冬期講習動画",
+    exam: "第一級陸上無線技術士",
+    type: "動画",
+    description: "７回分の冬期講習動画を一本に再編集した動画です。",
+    url: "https://drive.google.com/file/d/1Nw-iqMFAdNetf-JgW33fn5CqUwOytmEL/view?usp=drive_link",
+  },
+  {
     title: "アルゴリズム攻略　講義資料",
     exam: "基本情報技術者試験",
     type: "スライド",
