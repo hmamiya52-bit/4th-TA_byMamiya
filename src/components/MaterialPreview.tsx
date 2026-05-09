@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import type { Material } from "@/data/materials";
 
 const previewStyles: Record<Material["type"], { frame: string; bar: string; label: string }> = {
@@ -40,12 +43,22 @@ type MaterialPreviewProps = {
 
 export function MaterialPreview({ material, compact = false }: MaterialPreviewProps) {
   const style = previewStyles[material.type];
+  const thumbnails = Array.isArray(material.thumbnail) ? material.thumbnail : material.thumbnail ? [material.thumbnail] : [];
+  const [thumbnailIndex, setThumbnailIndex] = useState(0);
 
-  if (material.thumbnail) {
+  useEffect(() => {
+    if (thumbnails.length > 1) {
+      setThumbnailIndex(Math.floor(Math.random() * thumbnails.length));
+    }
+  }, [thumbnails.length]);
+
+  if (thumbnails.length > 0) {
+    const thumbnail = thumbnails[thumbnailIndex] ?? thumbnails[0];
+
     return (
       <div className="overflow-hidden rounded-lg border border-line bg-surface shadow-sm">
         <div className="aspect-video bg-preview">
-          <img src={material.thumbnail} alt={`${material.title}のプレビュー`} className="h-full w-full object-contain" loading="lazy" />
+          <img src={thumbnail} alt={`${material.title}のプレビュー`} className="h-full w-full object-contain" loading="lazy" />
         </div>
       </div>
     );

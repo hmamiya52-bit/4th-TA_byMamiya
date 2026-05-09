@@ -44,6 +44,8 @@ const examDisplayNames: Record<string, string> = {
   プロジェクトマネージャ: "プロジェクトマネージャ（PM）",
 };
 
+const compactMaterialExams = new Set(["第一級陸上無線技術士", "応用情報技術者試験"]);
+
 const installGuides = [
   {
     title: "iPhoneの方（Safari）",
@@ -108,6 +110,11 @@ export default function Home() {
             const note = examNotes[exam];
             const sectionId = examSectionIds[exam];
             const displayName = examDisplayNames[exam] ?? exam;
+            const isCompactExam = compactMaterialExams.has(exam);
+            const gridClass = isCompactExam
+              ? "grid gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-4"
+              : "grid gap-5 md:grid-cols-2 lg:grid-cols-3";
+            const cardSizeClass = isCompactExam ? "min-h-72 p-5 lg:min-h-64 lg:p-4" : "min-h-72 p-5";
 
             return (
               <section key={exam} id={sectionId} aria-labelledby={`${exam}-heading`}>
@@ -121,43 +128,48 @@ export default function Home() {
                   </div>
                   {note ? <p className="mx-auto mt-3 max-w-3xl text-center text-xs leading-6 text-muted">{note}</p> : null}
                 </div>
-                <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                <div className={gridClass}>
                   {examMaterials.map((material) => (
                     <article
                       key={material.title}
-                      className={`flex min-h-72 flex-col rounded-lg border p-5 transition hover:-translate-y-0.5 hover:shadow-soft ${
+                      className={`flex flex-col rounded-lg border transition hover:-translate-y-0.5 hover:shadow-soft ${cardSizeClass} ${
                         material.recommended
                           ? "border-accent bg-blue-50/45 shadow-soft ring-1 ring-accent/20 dark:bg-blue-950/30"
                           : "border-line bg-surface shadow-sm"
                       }`}
                     >
-                      <div className="mb-5">
+                      <div className={isCompactExam ? "mb-5 lg:mb-4" : "mb-5"}>
                         <MaterialPreview material={material} />
                       </div>
-                      <div className="mb-4 flex flex-wrap items-center gap-2">
+                      <div className={isCompactExam ? "mb-4 flex flex-wrap items-center gap-2 lg:mb-3 lg:gap-1.5" : "mb-4 flex flex-wrap items-center gap-2"}>
                         {material.recommended ? (
-                          <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-surface">
+                          <span className={isCompactExam ? "rounded-full bg-accent px-3 py-1 text-xs font-bold text-surface lg:px-2.5 lg:text-[11px]" : "rounded-full bg-accent px-3 py-1 text-xs font-bold text-surface"}>
                             おすすめ
                           </span>
                         ) : null}
-                        <span className="rounded-full bg-badge px-3 py-1 text-xs font-bold text-badgeText">
+                        <span className={isCompactExam ? "rounded-full bg-badge px-3 py-1 text-xs font-bold text-badgeText lg:px-2.5 lg:text-[11px]" : "rounded-full bg-badge px-3 py-1 text-xs font-bold text-badgeText"}>
                           {material.exam}
                         </span>
-                        <span className={`rounded-full px-3 py-1 text-xs font-bold ring-1 ${typeStyles[material.type]}`}>
+                        <span className={`rounded-full px-3 py-1 text-xs font-bold ring-1 ${isCompactExam ? "lg:px-2.5 lg:text-[11px]" : ""} ${typeStyles[material.type]}`}>
                           {material.type}
                         </span>
                       </div>
-                      <h4 className="text-lg font-bold leading-7 text-ink">{material.title}</h4>
-                      <p className="mt-3 flex-1 text-sm leading-7 text-muted">{material.description}</p>
-                      <a
-                        href={material.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-6 inline-flex min-h-11 items-center justify-center rounded-md bg-ink px-4 py-2 text-sm font-bold text-surface transition hover:bg-accent"
-                        aria-label={`${material.title}を新しいタブで開く`}
-                      >
-                        {actionLabels[material.type]}
-                      </a>
+                      <h4 className={isCompactExam ? "text-lg font-bold leading-7 text-ink lg:text-base lg:leading-6" : "text-lg font-bold leading-7 text-ink"}>{material.title}</h4>
+                      <p className={isCompactExam ? "mt-3 flex-1 text-sm leading-7 text-muted lg:mt-2 lg:text-xs lg:leading-6" : "mt-3 flex-1 text-sm leading-7 text-muted"}>{material.description}</p>
+                      <div className={isCompactExam ? "mt-6 grid gap-2 lg:mt-4" : "mt-6 grid gap-2"}>
+                        {(material.links ?? [{ label: actionLabels[material.type], url: material.url }]).map((link) => (
+                          <a
+                            key={link.label}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={isCompactExam ? "inline-flex min-h-11 items-center justify-center rounded-md bg-ink px-4 py-2 text-center text-sm font-bold text-surface transition hover:bg-accent lg:min-h-10 lg:px-3 lg:text-xs" : "inline-flex min-h-11 items-center justify-center rounded-md bg-ink px-4 py-2 text-sm font-bold text-surface transition hover:bg-accent"}
+                            aria-label={`${material.title}の${link.label}を新しいタブで開く`}
+                          >
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
                     </article>
                   ))}
                 </div>

@@ -6,7 +6,8 @@ export type Material = {
   type: MaterialType;
   description: string;
   url: string;
-  thumbnail?: string;
+  links?: { label: string; url: string }[];
+  thumbnail?: string | string[];
   recommended?: boolean;
 };
 
@@ -121,20 +122,16 @@ export const materials: Material[] = [
     thumbnail: "/materials/AP-GW.png",
   },
   {
-    title: "R6春セキュリティ午後解説（前半）",
+    title: "R6春セキュリティ午後解説",
     exam: "応用情報技術者試験",
     type: "動画",
-    description: "午後問題の基本的な解き方を一緒に学んでいこうぜ的なノリの動画の前半です。滑舌が悪い。",
+    description: "午後問題の基本的な解き方を一緒に学んでいこうぜ的なノリの動画です。前半から見てください。滑舌が悪い。最後のアンケートは無視してください。",
     url: "https://drive.google.com/file/d/1UsGhVkLTxE9F9_lkYV7US1Vw6UBv3cwd/view?usp=drive_link",
-    thumbnail: "/materials/ap-2.png",
-  },
-  {
-    title: "R6春セキュリティ午後解説（後半）",
-    exam: "応用情報技術者試験",
-    type: "動画",
-    description: "前半の動画から見てください。最後のアンケートは無視してください。",
-    url: "https://drive.google.com/file/d/1UNl9JqJy1Xi8PbUdF-GQS5QPTQhySYiF/view?usp=drive_link",
-    thumbnail: "/materials/ap-3.png",
+    links: [
+      { label: "動画を開く（前半）", url: "https://drive.google.com/file/d/1UsGhVkLTxE9F9_lkYV7US1Vw6UBv3cwd/view?usp=drive_link" },
+      { label: "動画を開く（後半）", url: "https://drive.google.com/file/d/1UNl9JqJy1Xi8PbUdF-GQS5QPTQhySYiF/view?usp=drive_link" },
+    ],
+    thumbnail: ["/materials/ap-2.png", "/materials/ap-3.png"],
   },
 ];
 
