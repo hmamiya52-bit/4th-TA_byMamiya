@@ -112,9 +112,9 @@ export default function Home() {
             const displayName = examDisplayNames[exam] ?? exam;
             const isCompactExam = compactMaterialExams.has(exam);
             const gridClass = isCompactExam
-              ? "grid gap-5 md:grid-cols-2 lg:grid-cols-4 lg:gap-4"
+              ? "grid grid-cols-2 gap-3 md:grid-cols-2 md:gap-5 lg:grid-cols-4 lg:gap-4"
               : "grid gap-5 md:grid-cols-2 lg:grid-cols-3";
-            const cardSizeClass = isCompactExam ? "min-h-72 p-5 lg:min-h-64 lg:p-4" : "min-h-72 p-5";
+            const cardSizeClass = isCompactExam ? "min-h-0 p-3 md:min-h-72 md:p-5 lg:min-h-64 lg:p-4" : "min-h-72 p-5";
 
             return (
               <section key={exam} id={sectionId} aria-labelledby={`${exam}-heading`}>
@@ -138,32 +138,32 @@ export default function Home() {
                           : "border-line bg-surface shadow-sm"
                       }`}
                     >
-                      <div className={isCompactExam ? "mb-5 lg:mb-4" : "mb-5"}>
+                      <div className={isCompactExam ? "mb-3 md:mb-5 lg:mb-4" : "mb-5"}>
                         <MaterialPreview material={material} />
                       </div>
-                      <div className={isCompactExam ? "mb-4 flex flex-wrap items-center gap-2 lg:mb-3 lg:gap-1.5" : "mb-4 flex flex-wrap items-center gap-2"}>
+                      <div className={isCompactExam ? "mb-3 flex flex-wrap items-center gap-1.5 md:mb-4 md:gap-2 lg:mb-3 lg:gap-1.5" : "mb-4 flex flex-wrap items-center gap-2"}>
                         {material.recommended ? (
-                          <span className={isCompactExam ? "rounded-full bg-accent px-3 py-1 text-xs font-bold text-surface lg:px-2.5 lg:text-[11px]" : "rounded-full bg-accent px-3 py-1 text-xs font-bold text-surface"}>
+                          <span className={isCompactExam ? "rounded-full bg-accent px-2 py-0.5 text-[10px] font-bold text-surface md:px-3 md:py-1 md:text-xs lg:px-2.5 lg:text-[11px]" : "rounded-full bg-accent px-3 py-1 text-xs font-bold text-surface"}>
                             おすすめ
                           </span>
                         ) : null}
-                        <span className={isCompactExam ? "rounded-full bg-badge px-3 py-1 text-xs font-bold text-badgeText lg:px-2.5 lg:text-[11px]" : "rounded-full bg-badge px-3 py-1 text-xs font-bold text-badgeText"}>
+                        <span className={isCompactExam ? "hidden rounded-full bg-badge px-3 py-1 text-xs font-bold text-badgeText md:inline-flex lg:px-2.5 lg:text-[11px]" : "rounded-full bg-badge px-3 py-1 text-xs font-bold text-badgeText"}>
                           {material.exam}
                         </span>
-                        <span className={`rounded-full px-3 py-1 text-xs font-bold ring-1 ${isCompactExam ? "lg:px-2.5 lg:text-[11px]" : ""} ${typeStyles[material.type]}`}>
+                        <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold ring-1 md:px-3 md:py-1 md:text-xs ${isCompactExam ? "lg:px-2.5 lg:text-[11px]" : ""} ${typeStyles[material.type]}`}>
                           {material.type}
                         </span>
                       </div>
-                      <h4 className={isCompactExam ? "text-lg font-bold leading-7 text-ink lg:text-base lg:leading-6" : "text-lg font-bold leading-7 text-ink"}>{material.title}</h4>
-                      <p className={isCompactExam ? "mt-3 flex-1 text-sm leading-7 text-muted lg:mt-2 lg:text-xs lg:leading-6" : "mt-3 flex-1 text-sm leading-7 text-muted"}>{material.description}</p>
-                      <div className={isCompactExam ? "mt-6 grid gap-2 lg:mt-4" : "mt-6 grid gap-2"}>
+                      <h4 className={isCompactExam ? "text-sm font-bold leading-5 text-ink md:text-lg md:leading-7 lg:text-base lg:leading-6" : "text-lg font-bold leading-7 text-ink"}>{material.title}</h4>
+                      <p className={isCompactExam ? "mt-2 flex-1 overflow-hidden text-[11px] leading-5 text-muted [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] md:mt-3 md:text-sm md:leading-7 md:[display:block] lg:mt-2 lg:text-xs lg:leading-6" : "mt-3 flex-1 text-sm leading-7 text-muted"}>{material.description}</p>
+                      <div className={isCompactExam ? "mt-3 grid gap-1.5 md:mt-6 md:gap-2 lg:mt-4" : "mt-6 grid gap-2"}>
                         {(material.links ?? [{ label: actionLabels[material.type], url: material.url }]).map((link) => (
                           <a
                             key={link.label}
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={isCompactExam ? "inline-flex min-h-11 items-center justify-center rounded-md bg-ink px-4 py-2 text-center text-sm font-bold text-surface transition hover:bg-accent lg:min-h-10 lg:px-3 lg:text-xs" : "inline-flex min-h-11 items-center justify-center rounded-md bg-ink px-4 py-2 text-sm font-bold text-surface transition hover:bg-accent"}
+                            className={isCompactExam ? "inline-flex min-h-9 items-center justify-center rounded-md bg-ink px-2 py-1.5 text-center text-[11px] font-bold leading-4 text-surface transition hover:bg-accent md:min-h-11 md:px-4 md:py-2 md:text-sm lg:min-h-10 lg:px-3 lg:text-xs" : "inline-flex min-h-11 items-center justify-center rounded-md bg-ink px-4 py-2 text-sm font-bold text-surface transition hover:bg-accent"}
                             aria-label={`${material.title}の${link.label}を新しいタブで開く`}
                           >
                             {link.label}
