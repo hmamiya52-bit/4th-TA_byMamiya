@@ -183,8 +183,9 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 lg:px-8">
           <div className="mb-8">
             <p className="text-sm font-bold text-brand">Install</p>
-            <h2 className="mt-2 text-3xl font-bold text-ink">インストール手順（読まなくてもOK、簡単）</h2>
+            <h2 className="mt-2 text-3xl font-bold text-ink">インストール手順</h2>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-muted">
+              <span className="block">読まなくてもOK、簡単です。</span>
               <span className="block">学習Webアプリは、スマホやPCのホーム画面に追加して使えます。</span>
               <span className="block">基本情報技術者試験とネットワークスペシャリストの学習アプリで利用できます。</span>
             </p>
@@ -192,9 +193,14 @@ export default function Home() {
 
           <div className="grid gap-5 lg:grid-cols-3">
             {installGuides.map((guide) => (
-              <section key={guide.title} className="rounded-lg border border-line bg-paper p-5">
-                <h3 className="text-base font-bold text-ink">{guide.title}</h3>
-                <ol className="mt-4 space-y-3 text-sm leading-7 text-muted">
+              <details key={guide.title} className="group rounded-lg border border-line bg-paper">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-base font-bold text-ink">
+                  <span>{guide.title}</span>
+                  <span className="text-xs text-muted transition group-open:rotate-180" aria-hidden="true">
+                    ▼
+                  </span>
+                </summary>
+                <ol className="space-y-3 border-t border-line px-5 py-4 text-sm leading-7 text-muted">
                   {guide.steps.map((step, index) => (
                     <li key={step} className="flex gap-3">
                       <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-surface text-xs font-bold text-accent ring-1 ring-line">
@@ -204,7 +210,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ol>
-              </section>
+              </details>
             ))}
           </div>
         </div>
