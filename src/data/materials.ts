@@ -134,6 +134,14 @@ export const materials: Material[] = [
     ],
     thumbnail: ["/materials/ap-2.png", "/materials/ap-3.png"],
   },
+  {
+    title: "プロジェクトマネージャ　開発中アプリ",
+    exam: "プロジェクトマネージャ",
+    type: "Webアプリ",
+    description: "R8上期完成に向けて作成中。プロフェッショナルデジタルスキル試験の土台も兼ねて。",
+    url: "https://mamiya-pmapp.vercel.app/",
+    links: [{ label: "開発中ページを開く", url: "https://mamiya-pmapp.vercel.app/" }],
+  },
 ];
 
 export const exams = [...Array.from(new Set(materials.map((material) => material.exam))), "プロジェクトマネージャ"];
