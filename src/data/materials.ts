@@ -144,7 +144,7 @@ export const materials: Material[] = [
   },
 ];
 
-export const exams = [...Array.from(new Set(materials.map((material) => material.exam))), "プロジェクトマネージャ"];
+export const exams = Array.from(new Set([...materials.map((material) => material.exam), "プロジェクトマネージャ"]));
 
 export const examNotes: Record<string, string> = {
   第一級陸上無線技術士: "今も昔も変わらず無線屋最高峰資格。IT業界向けではない。",
