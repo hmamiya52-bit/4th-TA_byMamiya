@@ -45,10 +45,9 @@ const ganttStatusStyles = {
 } satisfies Record<GanttStatus, string>;
 
 const ganttItems: GanttItem[] = [
-  { title: "中期計画策定", start: "2026/04-first", end: "2026/05-first", status: "着手中" },
+  { title: "中期計画策定", start: "2026/04-first", end: "2026/05-first", status: "完了" },
   { title: "ネスペアプリ改修", start: "2026/04-second", end: "2026/04-second", status: "完了" },
-  { title: "プロジェクトマネージャアプリ要件定義・設計", start: "2026/05-first", end: "2026/05-second", status: "着手中" },
-  { title: "家計簿管理アプリ改修", start: "2026/05-second", end: "2026/05-second", status: "予定" },
+  { title: "プロジェクトマネージャアプリ要件定義・設計", start: "2026/05-first", end: "2026/05-second", status: "完了" },
   {
     title: "プロフェッショナルデジタルスキル試験（PDS）対策アプリ:要件定義",
     start: "2026/06-first",
@@ -56,7 +55,7 @@ const ganttItems: GanttItem[] = [
     status: "予定",
   },
   { title: "PDSアプリ用ノート作成（PM）", start: "2026/06-first", end: "2026/07-second", status: "予定" },
-  { title: "プロジェクトマネージャ対策アプリ開発", start: "2026/07-first", end: "2026/09-second", status: "予定" },
+  { title: "プロジェクトマネージャ対策アプリ開発", start: "2026/05-second", end: "2026/09-second", status: "着手中" },
   { title: "PDSアプリ用ノート作成（ST）", start: "2026/07-second", end: "2026/08-first", status: "予定" },
   { title: "PDSアプリ基本設計", start: "2026/08-second", end: "2026/09-first", status: "予定" },
   { title: "PDSアプリ詳細設計", start: "2026/09-first", end: "2026/09-second", status: "予定" },
