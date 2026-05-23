@@ -87,10 +87,9 @@ export default function Home() {
 
       <section className="border-b border-line bg-surface">
         <div className="mx-auto flex max-w-6xl flex-col gap-0.5 px-5 py-2 text-[10px] leading-5 text-muted sm:px-6 sm:text-[11px] lg:px-8">
-          <p className="font-semibold">最終更新日：2026/05/17</p>
-          <p className="font-semibold">お知らせ：ネスペ学習アプリを大型アップデートしました。不具合修正以外は、ひとまずこれで完成とします。</p>
-          <p className="font-semibold">応用情報と一陸技の過去資料・動画の一部を追加しました。</p>
-          <p className="font-semibold">プロマネアプリ骨組みだけ完成。現在ノート・問題作成中。</p>
+          <p className="font-semibold">最終更新日：2026/05/24</p>
+          <p className="font-semibold">プロマネアプリ開発進行中。ノートと午前Ⅱは仮土台完成。午後問題の取り込み中。</p>
+          <p className="font-semibold">2027年に向けた計画もある程度固まってきた。</p>
         </div>
       </section>
 
