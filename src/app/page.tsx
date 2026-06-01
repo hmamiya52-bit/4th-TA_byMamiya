@@ -87,9 +87,9 @@ export default function Home() {
 
       <section className="border-b border-line bg-surface">
         <div className="mx-auto flex max-w-6xl flex-col gap-0.5 px-5 py-2 text-[10px] leading-5 text-muted sm:px-6 sm:text-[11px] lg:px-8">
-          <p className="font-semibold">最終更新日：2026/05/24</p>
-          <p className="font-semibold">プロマネアプリ開発進行中。ノートと午前Ⅱは仮土台完成。午後問題の取り込み中。</p>
-          <p className="font-semibold">2027年に向けた計画もある程度固まってきた。</p>
+          <p className="font-semibold">最終更新日：2026/06/01</p>
+          <p className="font-semibold">プロマネアプリ開発進行中。問題取込完了、解説作成中。</p>
+          <p className="font-semibold">2027年計画に向け、PMアプリの中にサビマネ取込も開始。</p>
         </div>
       </section>
 
